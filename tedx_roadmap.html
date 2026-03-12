@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEDx IMT × EULiST — Roadmap 2026–2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E62B1E;
+    --dark: #111111;
+    --mid: #1e1e1e;
+    --border: #2e2e2e;
+    --text: #f0f0f0;
+    --muted: #888;
+    --accent: #ff6b5b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 48px 32px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .ted-badge {
+    background: var(--red);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 3px;
+  }
+
+  .x-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--text);
+    letter-spacing: 1px;
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 4px;
+    color: white;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  header h1 span { color: var(--red); }
+
+  header p {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--red);
+    margin: 20px auto;
+  }
+
+  .timeline {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .month-block {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .month-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .month-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: white;
+    white-space: nowrap;
+  }
+
+  .month-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .month-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .milestone-badge {
+    background: var(--red);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--mid);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  thead tr {
+    background: #1a1a1a;
+    border-bottom: 2px solid var(--red);
+  }
+
+  thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  thead th:first-child { width: 200px; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #252525; }
+
+  .axe-cell {
+    padding: 14px 16px;
+    vertical-align: top;
+  }
+
+  .axe-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .axe-icon { font-size: 15px; }
+
+  .axe-tag.finance { color: #4ade80; }
+  .axe-tag.comm    { color: #60a5fa; }
+  .axe-tag.program { color: #f472b6; }
+  .axe-tag.partner { color: #fb923c; }
+  .axe-tag.speaker { color: #a78bfa; }
+  .axe-tag.inter   { color: #34d399; }
+  .axe-tag.team    { color: #facc15; }
+  .axe-tag.lieu    { color: #f87171; }
+  .axe-tag.license { color: #e2e8f0; }
+  .axe-tag.event   { color: var(--red); }
+
+  .actions-cell {
+    padding: 14px 16px;
+    vertical-align: top;
+  }
+
+  .action-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .action-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: #d0d0d0;
+    font-size: 13px;
+  }
+
+  .action-list li::before {
+    content: "→";
+    color: var(--red);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .sub-item {
+    color: var(--muted) !important;
+    font-size: 12px !important;
+    margin-left: 18px;
+  }
+
+  .sub-item::before {
+    content: "·" !important;
+    color: var(--muted) !important;
+  }
+
+  .status-cell {
+    padding: 14px 16px;
+    vertical-align: top;
+    width: 120px;
+  }
+
+  .chip {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .chip.todo  { background: #1e2a1e; color: #4ade80; border: 1px solid #4ade8044; }
+  .chip.done  { background: #1a2a1a; color: #86efac; border: 1px solid #86efac55; }
+  .chip.key   { background: #2a1e1e; color: var(--red); border: 1px solid #e62b1e55; }
+  .chip.prep  { background: #1e1e2a; color: #60a5fa; border: 1px solid #60a5fa44; }
+  .chip.event { background: var(--red); color: white; }
+
+  .kpi-row { background: #191919 !important; }
+  .kpi-row td {
+    padding: 14px 16px;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .month-block.event-month table {
+    border: 1px solid var(--red);
+    box-shadow: 0 0 30px #e62b1e22;
+  }
+
+  .month-block.event-month .month-label { color: var(--red); }
+
+  footer {
+    text-align: center;
+    margin-top: 80px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  footer span { color: var(--red); }
+</style>
+</head>
+<body>
+
+
+<header>
+  <h1>ROADMAP <span>2026</span>–2027</h1>
+  <div class="divider"></div>
+</header>
+
+<div class="timeline">
+
+  <!-- FÉVRIER 2026 -->
+  <div class="month-block" style="animation-delay:0.05s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Février 2026</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Structuration & Lancement</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag license"><span class="axe-icon">📋</span>Licence</span></td>
+          <td class="actions-cell"><ul class="action-list"><li>Dépôt de la demande de licence TEDx (+1000 participants)</li></ul></td>
+          <td class="status-cell"><span class="chip done">✓ Fait</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag partner"><span class="axe-icon">🤝</span>Partenariats</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Début de structuration offre Junior-Entreprises IMT (après consultation JA)</li>
+            <li class="sub-item">Cadre commun + stratégie d'approche coordonnée</li>
+            <li>Revue complète des documents EULiST + rédaction d'un document officiel pour la prise en charge des frais par EULiST</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip done">✓ Fait</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag comm"><span class="axe-icon">📢</span>Communication</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Création des flyers + plaquette</li>
+            <li>Début conception stratégie communication (médias ciblés, rôles Paris/IMT/EULiST, modalités de relais)</li>
+            <li>Mise en ligne du site web institutionnel</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip done">✓ Fait</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag program"><span class="axe-icon">🎭</span>Programmation</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Finalisation du planning détaillé (découpage en actes, intégration artistique)</li>
+            <li>Identification associations artistiques (musique, danse) — 1er/2e choix</li>
+            <li>Premier devis prestations artistiques</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip done">✓ Fait</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag finance"><span class="axe-icon">💰</span>Financement</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Compléter le dossier sponsors au fur et à mesure des avancées</li>
+            <li>Poursuite des démarches CVEC IMT</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip done">✓ Fait</span></td>
+        </tr>
+        <tr class="kpi-row">
+          <td colspan="3">🎯 Objectifs chiffrés : Nombre de sponsors · Partenaires médias · JE engagées</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MARS 2026 -->
+  <div class="month-block" style="animation-delay:0.1s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Mars 2026</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Déploiement & Premières Sécurisations</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag license"><span class="axe-icon">✅</span>Jalons Majeurs</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Obtention de la licence TEDx</li>
+            <li>Passage commission CVEC IMT → 15 000 € pour sécuriser la location du théâtre</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip key">Critique</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag finance"><span class="axe-icon">💼</span>Sponsors</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Lancement stratégie sponsors entreprises (contacts, grands groupes, partenaires européens)</li>
+            <li>Contact Fondation IMT pour financement par mécènes</li>
+            <li>Contact services relations industrielles IMT, Écoles IMT, partenaires EULiST</li>
+            <li>Finalisation de l'offre Junior-Entreprises IMT</li>
+            <li>Revue complète des documents EULiST avec la Direction des Relations Internationales IMT</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip prep">En cours</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag comm"><span class="axe-icon">📢</span>Communication</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Finalisation flyers + plaquette</li>
+            <li>Finalisation stratégie communication (médias, rôles, relais)</li>
+            <li>Tous les supports finalisés en anglais (slides, plaquette, site)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip prep">En cours</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag speaker"><span class="axe-icon">🎤</span>Speakers</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Définition stratégie d'approche speakers (critères de sélection, priorisation)</li>
+            <li>Premiers contacts speakers</li>
+            <li>Doc clair sur prise en charge des frais (speakers + communication)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip prep">En cours</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag inter"><span class="axe-icon">🌍</span>International</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Présentation du projet lors de la réunion semestrielle EULiST (mars)</li>
+            <li>Démarrage des échanges avec les JE IMT</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip prep">En cours</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- AVRIL - MAI 2026 -->
+  <div class="month-block" style="animation-delay:0.15s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Avril — Mai 2026</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Consolidation</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag comm"><span class="axe-icon">📣</span>Médias & Partenaires</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Contact des partenaires médias</li>
+            <li>Rencontre équipe TEDx Nantes (retour d'expérience organisation d'avril)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag inter"><span class="axe-icon">🎯</span>EULiST</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Application des décisions issues de la réunion EULiST de mars</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag speaker"><span class="axe-icon">🎤</span>Speakers</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Sécurisation progressive des speakers clés (vs objectif)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag team"><span class="axe-icon">👥</span>Équipe</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Conception campagne de recrutement interne (IMT + EULiST)</li>
+            <li class="sub-item">Attention particulière à la parité et à la diversité</li>
+            <li>Lancement du recrutement équipe projet</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag finance"><span class="axe-icon">💰</span>Financement</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Préparation dossier CVEC Crous de Paris en juillet + dépôt du projet</li>
+            <li>Sécuriser au moins 1 sponsor</li>
+            <li>Suivi précis des objectifs par axe (financement, speakers, comm, partenariats)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- JUIN 2026 -->
+  <div class="month-block" style="animation-delay:0.2s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Juin 2026</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Engagements Structurants</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag finance"><span class="axe-icon">💰</span>Engagement Financier</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Versement de l'acompte de la salle (dès sécurisation des fonds)</li>
+            <li>Au moins la moitié du budget total obtenu : <strong>32 500 €</strong></li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag lieu"><span class="axe-icon">📍</span>Lieu</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Validation du lieu définitif</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag program"><span class="axe-icon">🔒</span>Format</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Première version verrouillée du format, du nombre de participants et du budget cible</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag partner"><span class="axe-icon">✍️</span>Signatures</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Structuration définitive du fonds solidaire JE (IMT + EULiST)</li>
+            <li class="sub-item">Signatures officielles de toutes les JE de l'IMT et des JE côté EULiST</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- JUILLET - AOÛT 2026 -->
+  <div class="month-block" style="animation-delay:0.25s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Juillet — Août 2026</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Pré-production</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag speaker"><span class="axe-icon">👥</span>Comité Restreint</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Travail en comité restreint : suivi speakers + affinement storytelling global</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag partner"><span class="axe-icon">📄</span>Contrats</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Préparation des contrats/conventions partenaires, artistes, prestataires techniques</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag comm"><span class="axe-icon">📢</span>Communication</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Préparation des contenus de communication de rentrée</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag program"><span class="axe-icon">🎭</span>Programme</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Maquette finale du programme (ordre des talks)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag finance"><span class="axe-icon">💰</span>CVEC Crous Paris</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Passage devant la commission et obtention des 15 000 €</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SEPTEMBRE 2026 -->
+  <div class="month-block" style="animation-delay:0.3s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Septembre 2026</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Relance & Visibilité</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag comm"><span class="axe-icon">🚀</span>Lancement Public</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Lancement officiel de la communication grand public</li>
+            <li>Annonce des premiers speakers confirmés</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag inter"><span class="axe-icon">🌍</span>EULiST (1,7M)</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Activation forte des réseaux EULiST (1,7M abonnés)</li>
+            <li class="sub-item">Formats harmonisés + relais coordonnés</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag team"><span class="axe-icon">👥</span>Équipe & Médias</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Recrutement final des bénévoles</li>
+            <li>Confirmation des partenaires médias</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- OCTOBRE - NOVEMBRE 2026 -->
+  <div class="month-block" style="animation-delay:0.35s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Octobre — Novembre 2026</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Accélération</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag finance"><span class="axe-icon">✅</span>Sécurisation Finale</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Sécurisation finale des sponsors</li>
+            <li>Confirmation définitive artistes + prestataires techniques (son, vidéo, captation)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag inter"><span class="axe-icon">🌍</span>Logistique EU</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Finalisation transports, hébergements, quotas par école</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag comm"><span class="axe-icon">🌐</span>Post-TEDx</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Préparation de la communauté post-TEDx (plateforme / outil)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag license"><span class="axe-icon">✅</span>Validation TEDx</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Validation finale du programme TEDx avec Pascal Goyet</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DÉC 2026 - JAN 2027 -->
+  <div class="month-block" style="animation-delay:0.4s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Décembre 2026 — Janvier 2027</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Finalisation</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag speaker"><span class="axe-icon">🎤</span>Speakers</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Répétitions et coaching speakers</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag program"><span class="axe-icon">🎭</span>Scénographie</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Finalisation scénographie et technique</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag finance"><span class="axe-icon">🎫</span>Billetterie</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Lancement de la billetterie</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag comm"><span class="axe-icon">📣</span>Communication</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Communication finale (countdown)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag team"><span class="axe-icon">👥</span>Organisation</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Coordination terrain : bénévoles, accueil, sécurité</li>
+            <li>Validation finale TEDx (conformité)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SEMAINE J — FÉVRIER 2027 -->
+  <div class="month-block" style="animation-delay:0.43s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Semaine J — Février 2027</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">Dernière Ligne Droite</div>
+    </div>
+    <table>
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag speaker"><span class="axe-icon">🎤</span>Répétitions Finales</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Répétition générale sur site</li>
+            <li>Tests techniques complets (son, lumière, captation)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag team"><span class="axe-icon">👥</span>Brief Équipes</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Brief bénévoles</li>
+            <li>Brief régie et sécurité</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag inter"><span class="axe-icon">🌍</span>Accueil Speakers</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Arrivée des intervenants européens</li>
+            <li>Vérification logistique individuelle</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FÉVRIER 2027 — ÉVÉNEMENT -->
+  <div class="month-block event-month" style="animation-delay:0.45s">
+    <div class="month-header">
+      <div class="month-dot"></div>
+      <div class="month-label">Février 2027</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge">🎤 ÉVÉNEMENT</div>
+    </div>
+    <table>
+      <thead><tr><th>Phase</th><th>Programme</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag event"><span class="axe-icon">🌍</span>Accueil</span></td>
+          <td class="actions-cell"><ul class="action-list"><li>Accueil des délégations européennes</li></ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag event"><span class="axe-icon">🎭</span>Événement</span></td>
+          <td class="actions-cell"><ul class="action-list"><li>Tenue de l'événement TEDx IMT in partnership with EULiST – Paris</li></ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag event"><span class="axe-icon">🍽️</span>Networking</span></td>
+          <td class="actions-cell"><ul class="action-list"><li>Dîner / moments de rencontre post-événement</li></ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag event"><span class="axe-icon">📹</span>Diffusion</span></td>
+          <td class="actions-cell"><ul class="action-list"><li>Captation et diffusion des talks</li></ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag event"><span class="axe-icon">🌐</span>Communauté</span></td>
+          <td class="actions-cell"><ul class="action-list"><li>Activation de la communauté post-TEDx</li></ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MARS — JUIN 2027 : POST-EVENT -->
+  <div class="month-block" style="animation-delay:0.5s">
+    <div class="month-header">
+      <div class="month-dot" style="background:#a78bfa"></div>
+      <div class="month-label" style="color:#a78bfa">Mars — Juin 2027</div>
+      <div class="month-line"></div>
+      <div class="milestone-badge" style="background:#2e1a4a;color:#c4b5fd;border:1px solid #a78bfa55;">🚀 Post-Event & Valorisation</div>
+    </div>
+    <table style="border-color:#3d2d6a;">
+      <thead><tr><th>Axe</th><th>Actions Clés</th><th>Statut</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag program"><span class="axe-icon">📹</span>Production Vidéo</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Montage professionnel des talks TEDx</li>
+            <li>Validation conformité TEDx</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag comm"><span class="axe-icon">🌐</span>Diffusion</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Publication progressive sur YouTube, LinkedIn, plateformes IMT/EULiST</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag finance"><span class="axe-icon">📊</span>Bilan</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Bilan financier</li>
+            <li>Bilan d'impact (audience, participation, Europe)</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag partner"><span class="axe-icon">🤝</span>Partenaires</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Reporting sponsors et mécènes</li>
+            <li>Remerciements officiels</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+        <tr>
+          <td class="axe-cell"><span class="axe-tag inter"><span class="axe-icon">🚀</span>Pérennisation</span></td>
+          <td class="actions-cell"><ul class="action-list">
+            <li>Étude édition suivante</li>
+            <li>Capitalisation des retours d'expérience</li>
+          </ul></td>
+          <td class="status-cell"><span class="chip todo">À faire</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<footer>
+  <p>TEDx IMT in partnership with EULiST — Paris <span>·</span> Document interne <span>·</span> Mise à jour : Mars 2026</p>
+</footer>
+
+</body>
+</html>

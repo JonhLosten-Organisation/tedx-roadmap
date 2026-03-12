@@ -1,0 +1,870 @@
+{
+  "months": [
+    {
+      "label": "Février 2026",
+      "milestone": "Structuration & Lancement",
+      "kpi": "🎯 Objectifs chiffrés : Nombre de sponsors · Partenaires médias · JE engagées",
+      "axes": [
+        {
+          "id": "8w2hqfz6a",
+          "type": "license",
+          "icon": "📋",
+          "label": "Licence",
+          "actions": [
+            {
+              "text": "Dépôt de la demande de licence TEDx (+1000 participants)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "done",
+            "label": "Fait"
+          }
+        },
+        {
+          "id": "ulpp369zc",
+          "type": "partner",
+          "icon": "🤝",
+          "label": "Partenariats",
+          "actions": [
+            {
+              "text": "Début de structuration offre Junior-Entreprises IMT (après consultation JA)",
+              "isSub": true
+            },
+            {
+              "text": "Revue complète des documents EULiST + rédaction d'un document officiel pour la prise en charge des frais par EULiST",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "done",
+            "label": "Fait"
+          }
+        },
+        {
+          "id": "43iy8n3ni",
+          "type": "comm",
+          "icon": "📢",
+          "label": "Communication",
+          "actions": [
+            {
+              "text": "Création des flyers + plaquette",
+              "isSub": false
+            },
+            {
+              "text": "Début conception stratégie communication (médias ciblés, rôles Paris/IMT/EULiST, modalités de relais)",
+              "isSub": false
+            },
+            {
+              "text": "Mise en ligne du site web institutionnel",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "done",
+            "label": "Fait"
+          }
+        },
+        {
+          "id": "3xbvcysm3",
+          "type": "program",
+          "icon": "🎭",
+          "label": "Programmation",
+          "actions": [
+            {
+              "text": "Finalisation du planning détaillé (découpage en actes, intégration artistique)",
+              "isSub": false
+            },
+            {
+              "text": "Identification associations artistiques (musique, danse) — 1er/2e choix",
+              "isSub": false
+            },
+            {
+              "text": "Premier devis prestations artistiques",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "done",
+            "label": "Fait"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Mars 2026",
+      "milestone": "Déploiement & Premières Sécurisations",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "b3o9gypqu",
+          "type": "license",
+          "icon": "✅",
+          "label": "Jalons Majeurs",
+          "actions": [
+            {
+              "text": "Obtention de la licence TEDx",
+              "isSub": false
+            },
+            {
+              "text": "Passage commission CVEC IMT → 15 000 € pour sécuriser la location du théâtre",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "key",
+            "label": "Critique"
+          }
+        },
+        {
+          "id": "u84ygqfbx",
+          "type": "finance",
+          "icon": "💼",
+          "label": "Sponsors",
+          "actions": [
+            {
+              "text": "Lancement stratégie sponsors entreprises (contacts, grands groupes, partenaires européens)",
+              "isSub": false
+            },
+            {
+              "text": "Contact Fondation IMT pour financement par mécènes",
+              "isSub": false
+            },
+            {
+              "text": "Contact services relations industrielles IMT, Écoles IMT, partenaires EULiST",
+              "isSub": false
+            },
+            {
+              "text": "Finalisation de l'offre Junior-Entreprises IMT",
+              "isSub": false
+            },
+            {
+              "text": "Revue complète des documents EULiST avec la Direction des Relations Internationales IMT",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "prep",
+            "label": "En cours"
+          }
+        },
+        {
+          "id": "velah1dw6",
+          "type": "comm",
+          "icon": "📢",
+          "label": "Communication",
+          "actions": [
+            {
+              "text": "Finalisation flyers + plaquette",
+              "isSub": false
+            },
+            {
+              "text": "Finalisation stratégie communication (médias, rôles, relais)",
+              "isSub": false
+            },
+            {
+              "text": "Tous les supports finalisés en anglais (slides, plaquette, site)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "prep",
+            "label": "En cours"
+          }
+        },
+        {
+          "id": "pyd5iys88",
+          "type": "speaker",
+          "icon": "🎤",
+          "label": "Speakers",
+          "actions": [
+            {
+              "text": "Définition stratégie d'approche speakers (critères de sélection, priorisation)",
+              "isSub": false
+            },
+            {
+              "text": "Premiers contacts speakers",
+              "isSub": false
+            },
+            {
+              "text": "Doc clair sur prise en charge des frais (speakers + communication)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "prep",
+            "label": "En cours"
+          }
+        },
+        {
+          "id": "uuq64mjak",
+          "type": "inter",
+          "icon": "🌍",
+          "label": "International",
+          "actions": [
+            {
+              "text": "Présentation du projet lors de la réunion semestrielle EULiST (mars)",
+              "isSub": false
+            },
+            {
+              "text": "Démarrage des échanges avec les JE IMT",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "prep",
+            "label": "En cours"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Avril — Mai 2026",
+      "milestone": "Consolidation",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "yho4avem2",
+          "type": "comm",
+          "icon": "📣",
+          "label": "Médias & Partenaires",
+          "actions": [
+            {
+              "text": "Contact des partenaires médias",
+              "isSub": false
+            },
+            {
+              "text": "Rencontre équipe TEDx Nantes (retour d'expérience organisation d'avril)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "0y6z7pehz",
+          "type": "inter",
+          "icon": "🎯",
+          "label": "EULiST",
+          "actions": [
+            {
+              "text": "Application des décisions issues de la réunion EULiST de mars",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "hqctew8wj",
+          "type": "speaker",
+          "icon": "🎤",
+          "label": "Speakers",
+          "actions": [
+            {
+              "text": "Sécurisation progressive des speakers clés (vs objectif)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "o3ma6sjtj",
+          "type": "team",
+          "icon": "👥",
+          "label": "Équipe",
+          "actions": [
+            {
+              "text": "Conception campagne de recrutement interne (IMT + EULiST)",
+              "isSub": true
+            },
+            {
+              "text": "Lancement du recrutement équipe projet",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "o8ovj58vb",
+          "type": "finance",
+          "icon": "💰",
+          "label": "Financement",
+          "actions": [
+            {
+              "text": "Préparation dossier CVEC Crous de Paris en juillet + dépôt du projet",
+              "isSub": false
+            },
+            {
+              "text": "Sécuriser au moins 1 sponsor",
+              "isSub": false
+            },
+            {
+              "text": "Suivi précis des objectifs par axe (financement, speakers, comm, partenariats)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Juin 2026",
+      "milestone": "Engagements Structurants",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "s2r8svx02",
+          "type": "finance",
+          "icon": "💰",
+          "label": "Engagement Financier",
+          "actions": [
+            {
+              "text": "Versement de l'acompte de la salle (dès sécurisation des fonds)",
+              "isSub": false
+            },
+            {
+              "text": "Au moins la moitié du budget total obtenu : 32 500 €",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "hu71by38w",
+          "type": "lieu",
+          "icon": "📍",
+          "label": "Lieu",
+          "actions": [
+            {
+              "text": "Validation du lieu définitif",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "4yvbkvi30",
+          "type": "program",
+          "icon": "🔒",
+          "label": "Format",
+          "actions": [
+            {
+              "text": "Première version verrouillée du format, du nombre de participants et du budget cible",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "mdzp3cf19",
+          "type": "partner",
+          "icon": "✍️",
+          "label": "Signatures",
+          "actions": [
+            {
+              "text": "Structuration définitive du fonds solidaire JE (IMT + EULiST)",
+              "isSub": true
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Juillet — Août 2026",
+      "milestone": "Pré-production",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "ve3udxa5c",
+          "type": "speaker",
+          "icon": "👥",
+          "label": "Comité Restreint",
+          "actions": [
+            {
+              "text": "Travail en comité restreint : suivi speakers + affinement storytelling global",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "ji2a6mwig",
+          "type": "partner",
+          "icon": "📄",
+          "label": "Contrats",
+          "actions": [
+            {
+              "text": "Préparation des contrats/conventions partenaires, artistes, prestataires techniques",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "gfkvjzhe4",
+          "type": "comm",
+          "icon": "📢",
+          "label": "Communication",
+          "actions": [
+            {
+              "text": "Préparation des contenus de communication de rentrée",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "ebxhvdtm6",
+          "type": "program",
+          "icon": "🎭",
+          "label": "Programme",
+          "actions": [
+            {
+              "text": "Maquette finale du programme (ordre des talks)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "1oj6i4fsb",
+          "type": "finance",
+          "icon": "💰",
+          "label": "CVEC Crous Paris",
+          "actions": [
+            {
+              "text": "Passage devant la commission et obtention des 15 000 €",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Septembre 2026",
+      "milestone": "Relance & Visibilité",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "x67rbn50u",
+          "type": "comm",
+          "icon": "🚀",
+          "label": "Lancement Public",
+          "actions": [
+            {
+              "text": "Lancement officiel de la communication grand public",
+              "isSub": false
+            },
+            {
+              "text": "Annonce des premiers speakers confirmés",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "3zzd9dhv5",
+          "type": "inter",
+          "icon": "🌍",
+          "label": "EULiST (1,7M)",
+          "actions": [
+            {
+              "text": "Activation forte des réseaux EULiST (1,7M abonnés)",
+              "isSub": true
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "f950m4a6l",
+          "type": "team",
+          "icon": "👥",
+          "label": "Équipe & Médias",
+          "actions": [
+            {
+              "text": "Recrutement final des bénévoles",
+              "isSub": false
+            },
+            {
+              "text": "Confirmation des partenaires médias",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Octobre — Novembre 2026",
+      "milestone": "Accélération",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "c2yctbugr",
+          "type": "finance",
+          "icon": "✅",
+          "label": "Sécurisation Finale",
+          "actions": [
+            {
+              "text": "Sécurisation finale des sponsors",
+              "isSub": false
+            },
+            {
+              "text": "Confirmation définitive artistes + prestataires techniques (son, vidéo, captation)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "26r1r6yak",
+          "type": "inter",
+          "icon": "🌍",
+          "label": "Logistique EU",
+          "actions": [
+            {
+              "text": "Finalisation transports, hébergements, quotas par école",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "2kozy7r6o",
+          "type": "comm",
+          "icon": "🌐",
+          "label": "Post-TEDx",
+          "actions": [
+            {
+              "text": "Préparation de la communauté post-TEDx (plateforme / outil)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "ya62062kr",
+          "type": "license",
+          "icon": "✅",
+          "label": "Validation TEDx",
+          "actions": [
+            {
+              "text": "Validation finale du programme TEDx avec Pascal Goyet",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Décembre 2026 — Janvier 2027",
+      "milestone": "Finalisation",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "tv6whakr2",
+          "type": "speaker",
+          "icon": "🎤",
+          "label": "Speakers",
+          "actions": [
+            {
+              "text": "Répétitions et coaching speakers",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "wxk4xcj4m",
+          "type": "program",
+          "icon": "🎭",
+          "label": "Scénographie",
+          "actions": [
+            {
+              "text": "Finalisation scénographie et technique",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "51z2f48ei",
+          "type": "finance",
+          "icon": "🎫",
+          "label": "Billetterie",
+          "actions": [
+            {
+              "text": "Lancement de la billetterie",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "vlent9h8n",
+          "type": "comm",
+          "icon": "📣",
+          "label": "Communication",
+          "actions": [
+            {
+              "text": "Communication finale (countdown)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "sqnqswxbi",
+          "type": "team",
+          "icon": "👥",
+          "label": "Organisation",
+          "actions": [
+            {
+              "text": "Coordination terrain : bénévoles, accueil, sécurité",
+              "isSub": false
+            },
+            {
+              "text": "Validation finale TEDx (conformité)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Semaine J — Février 2027",
+      "milestone": "Dernière Ligne Droite",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "ekgthjqhm",
+          "type": "speaker",
+          "icon": "🎤",
+          "label": "Répétitions Finales",
+          "actions": [
+            {
+              "text": "Répétition générale sur site",
+              "isSub": false
+            },
+            {
+              "text": "Tests techniques complets (son, lumière, captation)",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "cr5eqoyyh",
+          "type": "team",
+          "icon": "👥",
+          "label": "Brief Équipes",
+          "actions": [
+            {
+              "text": "Brief bénévoles",
+              "isSub": false
+            },
+            {
+              "text": "Brief régie et sécurité",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "3xus6gni0",
+          "type": "inter",
+          "icon": "🌍",
+          "label": "Accueil Speakers",
+          "actions": [
+            {
+              "text": "Arrivée des intervenants européens",
+              "isSub": false
+            },
+            {
+              "text": "Vérification logistique individuelle",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Février 2027",
+      "milestone": "🎤 ÉVÉNEMENT",
+      "kpi": "",
+      "axes": [
+        {
+          "id": "66fdtamz8",
+          "type": "event",
+          "icon": "🌍",
+          "label": "Accueil",
+          "actions": [
+            {
+              "text": "Accueil des délégations européennes",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "ashi5oeat",
+          "type": "event",
+          "icon": "🎭",
+          "label": "Événement",
+          "actions": [
+            {
+              "text": "Tenue de l'événement TEDx IMT in partnership with EULiST – Paris",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "acgmoafwm",
+          "type": "event",
+          "icon": "🍽️",
+          "label": "Networking",
+          "actions": [
+            {
+              "text": "Dîner / moments de rencontre post-événement",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "2xp1b8axa",
+          "type": "event",
+          "icon": "📹",
+          "label": "Diffusion",
+          "actions": [
+            {
+              "text": "Captation et diffusion des talks",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        },
+        {
+          "id": "d8py8lsin",
+          "type": "event",
+          "icon": "🌐",
+          "label": "Communauté",
+          "actions": [
+            {
+              "text": "Activation de la communauté post-TEDx",
+              "isSub": false
+            }
+          ],
+          "status": {
+            "type": "todo",
+            "label": "À faire"
+          }
+        }
+      ]
+    }
+  ]
+}

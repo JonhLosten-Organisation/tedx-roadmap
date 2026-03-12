@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ted-red: #E62B1E;
+  --ted-dark: #0A0A0A;
+}
+
+body {
+  @apply bg-ted-dark text-ted-text font-outfit;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.glass {
+  @apply backdrop-blur-md bg-white/[0.05] border border-white/[0.1];
+}
+
+.glass-hover {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.glass-hover:hover {
+  @apply bg-white/[0.08] border-white/[0.2] -translate-y-0.5;
+}
+
+.gradient-bg {
+  background: radial-gradient(circle at 50% -20%, #2a1111 0%, #0a0a0a 100%);
+}
+
+.ted-red-glow {
+  box-shadow: 0 0 20px rgba(230, 43, 30, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E62B1E;
+}
+
+/* Gantt Customization */
+.gantt .grid-header { fill: #000 !important; stroke: #222 !important; }
+.gantt .grid-row { fill: #0a0a0a !important; stroke: #1a1a1a !important; }
+.gantt .grid-row:nth-child(even) { fill: #0d0d0d !important; }
+.gantt .lower-text { fill: rgba(255,255,255,0.6) !important; font-family: 'Inter', sans-serif !important; font-size: 11px !important; }
+.gantt .upper-text { fill: #E62B1E !important; font-family: 'Bebas Neue', sans-serif !important; font-size: 15px !important; letter-spacing: 2px !important; }
+.gantt .bar-wrapper { filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+.gantt .bar { fill: #1f1f1f !important; stroke: #333 !important; rx: 6; ry: 6; }
+.gantt .bar-progress { fill: #E62B1E !important; rx: 6; ry: 6; }
+.gantt .bar-label { fill: #fff !important; font-family: 'Inter', sans-serif !important; font-weight: 500 !important; font-size: 10px !important; }
+
+/* TODAY LINE */
+.gantt .today-highlight { 
+    fill: #E62B1E !important; 
+    opacity: 0.3 !important; 
+    width: 2px !important;
+}
+
