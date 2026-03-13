@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.99.1",
     "date-fns": "^4.1.0",
     "frappe-gantt": "^1.2.2",
     "lucide-react": "^0.577.0",

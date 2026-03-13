@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle2, AlertCircle, Clock, ChevronRight, Target, Calendar, Edit3, PlusCircle } from 'lucide-react';
 
-const RoadmapView = ({ months, updateAction, onEditAxe, onEditMilestone, isAdmin }) => {
+const RoadmapView = ({ months, onEditAxe, onEditMilestone, isAdmin }) => {
   const getStatusConfig = (status) => {
     switch (status.type) {
       case 'done':
@@ -85,7 +85,7 @@ const RoadmapView = ({ months, updateAction, onEditAxe, onEditMilestone, isAdmin
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {month.axes.map((axe, aIdx) => {
                 const status = getStatusConfig(axe.status);
-                const theme = getAxeTheme(axe.type);
+                // const theme = getAxeTheme(axe.type);
                 
                 return (
                   <div 

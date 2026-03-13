@@ -19,7 +19,7 @@ const getAutoStatus = (axe) => {
   return { label: 'À faire', type: 'todo' };
 };
 
-const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, months }) => {
+const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, months, orgData }) => {
   const [formData, setFormData] = useState(initialData || {});
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [emojiSearch, setEmojiSearch] = useState('');
@@ -250,14 +250,66 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
 
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-3">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-ted-muted">Responsable</label>
-                  <input 
-                    type="text" 
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-ted-muted">Responsable / Équipe</label>
+                  <select 
                     value={formData.responsible || ''} 
                     onChange={e => setFormData({...formData, responsible: e.target.value})}
-                    placeholder="Nom ou Équipe"
-                    className="w-full h-12 bg-black border border-white/10 rounded-xl px-4 text-sm focus:border-ted-red outline-none font-inter"
-                  />
+                    className="w-full h-12 bg-black border border-white/10 rounded-xl px-4 text-sm focus:border-ted-red outline-none font-inter appearance-none cursor-pointer"
+                  >
+                    <option value="">Non assigné</option>
+                    {(() => {
+                      const flatten = (poles) => {
+                        let members = [];
+                        let groups = [];
+                        let flatPoles = [];
+                        
+                        poles.forEach(p => {
+                          flatPoles.push({ id: p.id, name: p.name });
+                          p.groups?.forEach(g => groups.push({ id: g.id, name: g.name }));
+                          p.groups?.flatMap(g => g.members || []).forEach(m => members.push({ id: m.id, name: m.name, role: m.role }));
+                          
+                          if (p.subPoles && p.subPoles.length > 0) {
+                            const nested = flatten(p.subPoles);
+                            members = [...members, ...nested.members];
+                            groups = [...groups, ...nested.groups];
+                            flatPoles = [...flatPoles, ...nested.flatPoles];
+                          }
+                        });
+                        return { members, groups, flatPoles };
+                      };
+
+                      const { members, groups, flatPoles } = flatten(orgData?.poles || []);
+
+                      return (
+                        <>
+                          <optgroup label="Individus">
+                            {members.map(m => (
+                              <option key={m.id} value={m.name}>{m.name} ({m.role})</option>
+                            ))}
+                          </optgroup>
+                          <optgroup label="Groupes de travail">
+                            {groups.map(g => (
+                              <option key={g.id} value={g.name}>Groupe : {g.name}</option>
+                            ))}
+                          </optgroup>
+                          <optgroup label="Pôles">
+                            {flatPoles.map(p => (
+                              <option key={p.id} value={p.name}>Pôle : {p.name}</option>
+                            ))}
+                          </optgroup>
+                        </>
+                      );
+                    })()}
+                    <option value="Saisie libre">── Saisie libre ──</option>
+                  </select>
+                  {formData.responsible === 'Saisie libre' && (
+                    <input 
+                      type="text"
+                      className="w-full h-10 mt-2 bg-black/40 border border-white/5 rounded-lg px-4 text-xs focus:border-ted-red outline-none"
+                      placeholder="Entrez le nom manuellement..."
+                      onChange={(e) => setFormData({...formData, responsible: e.target.value})}
+                    />
+                  )}
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-ted-muted flex justify-between">

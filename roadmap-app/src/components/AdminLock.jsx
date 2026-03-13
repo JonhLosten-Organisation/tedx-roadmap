@@ -8,7 +8,9 @@ const AdminLock = ({ isAdmin, onUnlock, onLock }) => {
 
   const handleUnlock = (e) => {
     e.preventDefault();
-    if (password === 'Legrandlerouge2026') {
+    console.log('Password Attempt:', password);
+    const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD || 'Legrandlerouge2026';
+    if (password.trim() === adminPassword) {
       console.log('Admin Access Granted');
       onUnlock();
       setShowPrompt(false);

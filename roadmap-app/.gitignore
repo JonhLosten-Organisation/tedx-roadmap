@@ -1,18 +1,25 @@
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Logs
-logs
+build_log.txt
+lint_log.txt
+debug_build.log
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
+# Node
 node_modules
 dist
 dist-ssr
-*.local
 
-# Editor directories and files
+# Editor
 .vscode/*
 !.vscode/extensions.json
 .idea
