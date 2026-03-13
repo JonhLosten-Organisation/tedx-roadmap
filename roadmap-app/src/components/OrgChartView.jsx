@@ -46,19 +46,20 @@ const MemberCard = ({ member, serviceId, isAdmin, serviceColor, editingItem, set
           }}
           onClick={(e) => e.stopPropagation()}
         />
-        <div className="flex justify-between items-center px-1">
-          <button onClick={(e) => { e.stopPropagation(); setEditingItem(null); }} className="text-[8px] uppercase font-bold text-white/40 hover:text-white">Annuler</button>
-          <button 
-            onClick={(e) => { 
-              e.stopPropagation(); 
-              const inputs = e.currentTarget.parentElement.parentElement.querySelectorAll('input');
-              updateItem('member', member.id, serviceId, { name: inputs[0].value, role: inputs[1].value });
-            }} 
-            className="text-[8px] uppercase font-bold text-ted-red hover:text-white"
-          >
-            Enregistrer
-          </button>
-        </div>
+            <div className="flex justify-between items-center px-1">
+              <button onClick={(e) => { e.stopPropagation(); setEditingItem(null); }} className="text-[8px] uppercase font-bold text-white/40 hover:text-white">Annuler</button>
+              <button 
+                onClick={(e) => { 
+                  e.stopPropagation(); 
+                  const inputs = e.currentTarget.parentElement.parentElement.querySelectorAll('input');
+                  updateItem('member', member.id, serviceId, { name: inputs[0].value, role: inputs[1].value });
+                  setEditingItem(null);
+                }} 
+                className="text-[8px] uppercase font-bold text-ted-red hover:text-white"
+              >
+                Enregistrer
+              </button>
+            </div>
       </div>
     );
   }
@@ -186,12 +187,21 @@ const ServiceNode = ({ service, isRoot = false, level = 0, isAdmin, editingItem,
               ))}
             </div>
             
-            <div className="flex justify-center mt-2">
+            <div className="flex justify-between items-center mt-4">
                <button 
                 onClick={(e) => { e.stopPropagation(); setEditingItem(null); }}
                 className="text-[9px] uppercase font-bold text-white/40 hover:text-white"
               >
-                Fermer
+                Annuler
+              </button>
+              <button 
+                onClick={(e) => { 
+                  e.stopPropagation(); 
+                  setEditingItem(null); 
+                }}
+                className="bg-ted-red hover:bg-ted-accent text-[9px] text-white px-4 py-1.5 rounded-lg font-bold uppercase tracking-widest shadow-lg shadow-ted-red/20 transition-all"
+              >
+                Enregistrer
               </button>
             </div>
           </div>

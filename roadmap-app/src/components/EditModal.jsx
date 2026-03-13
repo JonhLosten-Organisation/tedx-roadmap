@@ -258,27 +258,27 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
                   >
                     <option value="">Non assigné</option>
                     {(() => {
-                      const flatten = (poles) => {
+                      const flatten = (services) => {
                         let members = [];
                         let groups = [];
-                        let flatPoles = [];
+                        let flatServices = [];
                         
-                        poles.forEach(p => {
-                          flatPoles.push({ id: p.id, name: p.name });
-                          p.groups?.forEach(g => groups.push({ id: g.id, name: g.name }));
-                          p.groups?.flatMap(g => g.members || []).forEach(m => members.push({ id: m.id, name: m.name, role: m.role }));
+                        services.forEach(s => {
+                          flatServices.push({ id: s.id, name: s.name });
+                          // Check for members in services (previously poles had groups, now services have members)
+                          s.members?.forEach(m => members.push({ id: m.id, name: m.name, role: m.role }));
                           
-                          if (p.subPoles && p.subPoles.length > 0) {
-                            const nested = flatten(p.subPoles);
+                          if (s.subServices && s.subServices.length > 0) {
+                            const nested = flatten(s.subServices);
                             members = [...members, ...nested.members];
                             groups = [...groups, ...nested.groups];
-                            flatPoles = [...flatPoles, ...nested.flatPoles];
+                            flatServices = [...flatServices, ...nested.flatServices];
                           }
                         });
-                        return { members, groups, flatPoles };
+                        return { members, groups, flatServices };
                       };
 
-                      const { members, groups, flatPoles } = flatten(orgData?.poles || []);
+                      const { members, groups, flatServices } = flatten(orgData?.services || []);
 
                       return (
                         <>
@@ -292,9 +292,9 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
                               <option key={g.id} value={g.name}>Groupe : {g.name}</option>
                             ))}
                           </optgroup>
-                          <optgroup label="Pôles">
-                            {flatPoles.map(p => (
-                              <option key={p.id} value={p.name}>Pôle : {p.name}</option>
+                          <optgroup label="Services / Pôles">
+                            {flatServices.map(p => (
+                              <option key={p.id} value={p.name}>Svc : {p.name}</option>
                             ))}
                           </optgroup>
                         </>

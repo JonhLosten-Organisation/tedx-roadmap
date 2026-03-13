@@ -20,7 +20,7 @@ const getAutoStatus = (axe) => {
 
 const App = () => {
   const [data, setData] = useState(initialData);
-  const [orgData, setOrgData] = useState({ poles: [] });
+  const [orgData, setOrgData] = useState({ services: [] });
   const [view, setView] = useState('roadmap');
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncError, setSyncError] = useState(false);
