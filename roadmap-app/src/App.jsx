@@ -303,6 +303,7 @@ const App = () => {
                 <PlusCircle size={16} className="text-emerald-400" />
                 <span className="hidden lg:inline">Ajouter un axe</span>
               </button>
+              {/* Temporarily hidden as requested:
               <button 
                 onClick={openAddMilestone}
                 className="flex items-center gap-2 bg-ted-red hover:bg-ted-accent text-white px-5 py-2 rounded-lg transition-all duration-300 text-sm font-semibold shadow-lg shadow-ted-red/20 group"
@@ -310,6 +311,7 @@ const App = () => {
                 <Plus size={18} className="group-hover:rotate-90 transition-transform duration-300" />
                 <span>Nouveau Jalon</span>
               </button>
+              */}
             </div>
           )}
           
