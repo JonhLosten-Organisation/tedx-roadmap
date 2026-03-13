@@ -200,28 +200,41 @@ const GanttView = ({ months }) => {
         
         /* Bar Styles */
         .gantt .bar-wrapper .bar { 
-            fill: #1f1f1f !important; 
-            stroke: rgba(255,255,255,0.2) !important; 
-            stroke-width: 1.5px !important; 
+            fill: #1a1a1a !important; 
+            stroke: rgba(255,255,255,0.3) !important; 
+            stroke-width: 2px !important; 
         }
         .gantt .bar-progress { 
             fill: #E62B1E !important; 
-            filter: drop-shadow(0 0 10px rgba(230, 43, 30, 0.6)); 
+            filter: drop-shadow(0 0 15px rgba(230, 43, 30, 0.8)); 
         }
         .gantt .bar-label { 
             fill: #ffffff !important; 
             color: #ffffff !important;
             font-family: 'Inter', sans-serif !important; 
             font-weight: 900 !important; 
-            font-size: 11px !important; 
-            letter-spacing: 0.5px; 
+            font-size: 13px !important; 
+            letter-spacing: 1px; 
             text-transform: uppercase; 
-            text-shadow: 0 2px 4px rgba(0,0,0,1);
+            dominant-baseline: central;
+            text-shadow: 0 0 8px rgba(0,0,0,1), 0 0 4px rgba(0,0,0,1) !important;
+            pointer-events: none;
+        }
+        
+        .gantt .bar-label.big {
+            fill: #ffffff !important;
+            font-weight: 900 !important;
         }
         
         /* Interactive States */
-        .gantt .bar-wrapper:hover .bar { stroke: #ffffff !important; }
-        .gantt .bar-wrapper:hover .bar-label { opacity: 1; }
+        .gantt .bar-wrapper:hover .bar { 
+            stroke: #ffffff !important;
+            fill: #262626 !important;
+        }
+        .gantt .bar-wrapper:hover .bar-label { 
+            fill: #ffffff !important;
+            opacity: 1; 
+        }
         
         /* TODAY LINE */
         .gantt .today-highlight { 
