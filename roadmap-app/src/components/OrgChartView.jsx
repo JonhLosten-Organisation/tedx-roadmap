@@ -84,6 +84,7 @@ const MemberCard = ({ member, serviceId, isAdmin, serviceColor, editingItem, set
             <button 
               type="button"
               onClick={(e) => { e.stopPropagation(); fileInputRef.current.click(); }}
+              aria-label="Modifier la photo du membre"
               className="absolute inset-0 bg-black/60 opacity-0 group-hover/avatar:opacity-100 flex items-center justify-center rounded-full transition-opacity"
             >
               <Camera size={10} className="text-white" />
@@ -102,6 +103,7 @@ const MemberCard = ({ member, serviceId, isAdmin, serviceColor, editingItem, set
             <button 
               type="button"
               onClick={(e) => { e.stopPropagation(); setEditingItem({ id: String(member.id), type: 'member', serviceId: String(serviceId) }); }}
+              aria-label="Modifier le membre"
               className="p-1 text-ted-muted hover:text-white"
             >
               <Edit2 size={10}/>
@@ -109,6 +111,7 @@ const MemberCard = ({ member, serviceId, isAdmin, serviceColor, editingItem, set
             <button 
               type="button" 
               onClick={(e) => { e.stopPropagation(); deleteItem('member', member.id, serviceId); }} 
+              aria-label="Supprimer le membre"
               className="p-1 text-ted-muted hover:text-ted-red"
             >
               <Trash2 size={10}/>
@@ -241,6 +244,7 @@ const ServiceNode = ({ service, isRoot = false, level = 0, isAdmin, editingItem,
                       <button 
                         type="button"
                         onClick={(e) => { e.stopPropagation(); fileInputRef.current.click(); }}
+                        aria-label="Modifier la photo du responsable"
                         className="absolute inset-0 bg-black/60 opacity-0 group-hover/manager-avatar:opacity-100 flex items-center justify-center rounded-full transition-opacity z-10"
                       >
                         <Camera size={isRoot ? 14 : 12} className="text-white" />
@@ -284,10 +288,10 @@ const ServiceNode = ({ service, isRoot = false, level = 0, isAdmin, editingItem,
             
             {isAdmin && (
               <div className="flex gap-1 opacity-0 group-hover/service-header:opacity-100 transition-opacity bg-black/60 p-1 rounded-lg border border-white/10 backdrop-blur-md z-20 shadow-sm">
-                <button type="button" onClick={(e) => { e.stopPropagation(); setEditingItem({ id: String(service.id), type: 'service' }); }} className="p-1 hover:text-white"><Edit2 size={10}/></button>
-                <button type="button" onClick={(e) => { e.stopPropagation(); addService(service.id); }} className="p-1 hover:text-ted-red"><Plus size={10}/></button>
+                <button type="button" aria-label="Modifier le pôle" onClick={(e) => { e.stopPropagation(); setEditingItem({ id: String(service.id), type: 'service' }); }} className="p-1 hover:text-white"><Edit2 size={10}/></button>
+                <button type="button" aria-label="Ajouter un sous-pôle" onClick={(e) => { e.stopPropagation(); addService(service.id); }} className="p-1 hover:text-ted-red"><Plus size={10}/></button>
                 {!isRoot && (
-                  <button type="button" onClick={(e) => { e.stopPropagation(); deleteItem('service', service.id); }} className="p-1 hover:text-ted-red"><Trash2 size={10}/></button>
+                  <button type="button" aria-label="Supprimer le pôle" onClick={(e) => { e.stopPropagation(); deleteItem('service', service.id); }} className="p-1 hover:text-ted-red"><Trash2 size={10}/></button>
                 )}
               </div>
             )}

@@ -5,7 +5,7 @@ import GanttView from './components/GanttView';
 import EditModal from './components/EditModal';
 import AdminLock from './components/AdminLock';
 import OrgChartView from './components/OrgChartView';
-import { LayoutDashboard, Calendar, Plus, Save, Share2, PlusCircle, Cloud, CloudOff } from 'lucide-react';
+import { LayoutDashboard, Calendar, Plus, Save, Share2, PlusCircle, Cloud, CloudOff, Check } from 'lucide-react';
 import { supabase } from './lib/supabase';
 
 const getAutoStatus = (axe) => {
@@ -26,6 +26,7 @@ const App = () => {
   const [syncError, setSyncError] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [user, setUser] = useState(null);
+  const [toastMessage, setToastMessage] = useState(null);
 
   // Auth Session Listener
   useEffect(() => {
@@ -216,7 +217,8 @@ const App = () => {
       } else {
         throw new Error("Clipboard API unavailable");
       }
-      alert("L'URL de la roadmap a été copiée !");
+      setToastMessage("L'URL a été copiée dans le presse-papier !");
+      setTimeout(() => setToastMessage(null), 3000);
     } catch (err) {
       // Fallback
       const textArea = document.createElement("textarea");
@@ -225,9 +227,11 @@ const App = () => {
       textArea.select();
       try {
         document.execCommand('copy');
-        alert("L'URL de la roadmap a été copiée ! (Fallback)");
+        setToastMessage("L'URL a été copiée dans le presse-papier !");
+        setTimeout(() => setToastMessage(null), 3000);
       } catch (e) {
-        alert("Erreur lors de la copie de l'URL. Veuillez copier manuellement : " + url);
+        setToastMessage("Erreur lors de la copie de l'URL.");
+        setTimeout(() => setToastMessage(null), 3000);
       }
       document.body.removeChild(textArea);
     }
@@ -317,6 +321,7 @@ const App = () => {
           
           <button 
             onClick={handleShare}
+            aria-label="Partager la roadmap"
             className="flex items-center justify-center p-2 md:px-4 md:py-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-lg transition-all duration-200 text-sm font-medium"
           >
             <Share2 size={16} />
@@ -329,6 +334,7 @@ const App = () => {
       <div className="md:hidden fixed bottom-0 left-0 w-full z-50 glass border-t border-white/10 px-4 py-2 flex items-center justify-around bg-black/95 backdrop-blur-2xl pb-safe">
         <button 
           onClick={() => setView('roadmap')}
+          aria-label="Vue Roadmap"
           className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${view === 'roadmap' ? 'text-ted-red' : 'text-ted-muted hover:text-white'}`}
         >
           <LayoutDashboard size={20} className={view === 'roadmap' ? 'scale-110 drop-shadow-[0_0_8px_rgba(230,43,30,0.5)]' : ''} />
@@ -336,6 +342,7 @@ const App = () => {
         </button>
         <button 
           onClick={() => setView('gantt')}
+          aria-label="Vue Gantt"
           className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${view === 'gantt' ? 'text-ted-red' : 'text-ted-muted hover:text-white'}`}
         >
           <Calendar size={20} className={view === 'gantt' ? 'scale-110 drop-shadow-[0_0_8px_rgba(230,43,30,0.5)]' : ''} />
@@ -343,6 +350,7 @@ const App = () => {
         </button>
         <button 
           onClick={() => setView('org')}
+          aria-label="Vue Organigramme"
           className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${view === 'org' ? 'text-ted-red' : 'text-ted-muted hover:text-white'}`}
         >
           <PlusCircle size={20} className={view === 'org' ? 'scale-110 drop-shadow-[0_0_8px_rgba(230,43,30,0.5)]' : ''} />
@@ -407,6 +415,16 @@ const App = () => {
         onSave={handleSaveModal}
         onDelete={handleDeleteTarget}
       />
+
+      {/* Toast Notification */}
+      <div className={`fixed bottom-24 md:bottom-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 transform ${toastMessage ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0 pointer-events-none'}`}>
+        <div className="glass px-6 py-3 rounded-2xl border border-white/20 shadow-premium flex items-center gap-3 bg-black/80 backdrop-blur-xl">
+          <div className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
+            <Check size={14} className="text-emerald-400" />
+          </div>
+          <span className="text-white text-sm font-medium tracking-wide whitespace-nowrap">{toastMessage}</span>
+        </div>
+      </div>
     </div>
   );
 };

@@ -100,7 +100,7 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
           <h3 className="font-bebas text-3xl tracking-widest text-white">
             {type === 'axe' ? 'Modifier l\'Axe' : (type === 'milestone' ? 'Objectif de Phase' : 'Nouvel Axe Stratégique')}
           </h3>
-          <button onClick={onClose} className="p-2 text-ted-muted hover:text-white transition-colors">
+          <button onClick={onClose} aria-label="Fermer la fenêtre" className="p-2 text-ted-muted hover:text-white transition-colors">
             <X size={20} />
           </button>
         </div>
@@ -411,6 +411,7 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
                         type="button"
                         onClick={() => toggleSubAction(idx)}
                         title={action.isSub ? "Passer en action principale" : "Passer en sous-action"}
+                        aria-label={action.isSub ? "Passer en action principale" : "Passer en sous-action"}
                         className={`mt-2.5 p-1 rounded transition-colors ${action.isSub ? 'text-ted-red bg-ted-red/10' : 'text-ted-muted hover:text-white bg-white/5'}`}
                       >
                         <ChevronRight size={12} className={action.isSub ? 'rotate-90' : ''} />
@@ -425,6 +426,7 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
                       <button 
                         type="button" 
                         onClick={() => removeAction(idx)}
+                        aria-label="Supprimer l'action"
                         className="mt-2.5 p-1 text-ted-muted hover:text-ted-red transition-colors"
                       >
                         <X size={14} />
