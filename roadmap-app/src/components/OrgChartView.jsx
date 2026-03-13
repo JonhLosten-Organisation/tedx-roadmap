@@ -160,35 +160,31 @@ const ServiceNode = ({ service, isRoot = false, level = 0, isAdmin, editingItem,
               onKeyDown={(e) => e.key === 'Enter' && updateItem('service', service.id, null, { name: e.target.value })}
             />
             
-            {!isRoot && (
-              <>
-                <p className="text-[9px] uppercase font-bold text-ted-muted tracking-widest text-center mt-2">Responsable</p>
-                <input 
-                  className="bg-white/5 border border-white/10 rounded-lg px-2 py-1.5 text-[10px] text-white text-center outline-none w-full"
-                  placeholder="Nom Prénom"
-                  defaultValue={service.managerName}
-                  onChange={(e) => updateItem('service', service.id, null, { managerName: e.target.value })}
+            <p className="text-[9px] uppercase font-bold text-ted-muted tracking-widest text-center mt-2">Responsable</p>
+            <input 
+              className="bg-white/5 border border-white/10 rounded-lg px-2 py-1.5 text-[10px] text-white text-center outline-none w-full"
+              placeholder="Nom Prénom"
+              defaultValue={service.managerName}
+              onChange={(e) => updateItem('service', service.id, null, { managerName: e.target.value })}
+            />
+            <input 
+              className="bg-white/5 border border-white/10 rounded-lg px-2 py-1.5 text-[9px] text-white/60 text-center outline-none w-full italic"
+              placeholder="Rôle / Titre"
+              defaultValue={service.managerRole}
+              onChange={(e) => updateItem('service', service.id, null, { managerRole: e.target.value })}
+            />
+            
+            <p className="text-[9px] uppercase font-bold text-ted-muted tracking-widest text-center mt-2">Couleur du Pôle</p>
+            <div className="flex justify-center gap-1">
+              {colors.map(c => (
+                <button 
+                  key={c}
+                  onClick={(e) => { e.stopPropagation(); updateItem('service', service.id, null, { color: c }); }}
+                  className={`w-4 h-4 rounded-full border transition-all ${serviceColor === c ? 'border-white scale-110' : 'border-transparent'}`}
+                  style={{ backgroundColor: c }}
                 />
-                <input 
-                  className="bg-white/5 border border-white/10 rounded-lg px-2 py-1.5 text-[9px] text-white/60 text-center outline-none w-full italic"
-                  placeholder="Rôle / Titre"
-                  defaultValue={service.managerRole}
-                  onChange={(e) => updateItem('service', service.id, null, { managerRole: e.target.value })}
-                />
-                
-                <p className="text-[9px] uppercase font-bold text-ted-muted tracking-widest text-center mt-2">Couleur du Pôle</p>
-                <div className="flex justify-center gap-1">
-                  {colors.map(c => (
-                    <button 
-                      key={c}
-                      onClick={(e) => { e.stopPropagation(); updateItem('service', service.id, null, { color: c }); }}
-                      className={`w-4 h-4 rounded-full border transition-all ${serviceColor === c ? 'border-white scale-110' : 'border-transparent'}`}
-                      style={{ backgroundColor: c }}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
+              ))}
+            </div>
             
             <div className="flex justify-center mt-2">
                <button 
@@ -207,8 +203,8 @@ const ServiceNode = ({ service, isRoot = false, level = 0, isAdmin, editingItem,
             onDragEnd={handleDragEnd}
           >
             <div 
-              className={`flex flex-col items-center p-4 rounded-3xl border shadow-lg relative transition-all duration-300 hover:translate-y-[-2px] ${isRoot ? 'min-w-[320px]' : 'min-w-[200px]'}`}
-              style={{ backgroundColor: isRoot ? '#002B5B' : (serviceColor || 'rgba(255,255,255,0.05)'), borderColor: 'rgba(255,255,255,0.08)' }}
+              className={`flex flex-col items-center p-4 rounded-3xl border shadow-lg relative transition-all duration-300 hover:translate-y-[-2px] ${isRoot ? 'min-w-[280px] bg-ted-red/10 border-ted-red/30' : 'min-w-[200px]'}`}
+              style={{ backgroundColor: !isRoot ? (serviceColor || 'rgba(255,255,255,0.05)') : undefined, borderColor: isRoot ? undefined : 'rgba(255,255,255,0.08)' }}
             >
               {isAdmin && !isRoot && (
                 <div className="absolute top-2 left-2 text-white/10 group-hover/handle:text-white/40 cursor-grab active:cursor-grabbing">
@@ -216,96 +212,65 @@ const ServiceNode = ({ service, isRoot = false, level = 0, isAdmin, editingItem,
                 </div>
               )}
               
-              {isRoot ? (
-                <div className="flex flex-col items-center gap-4 w-full">
-                  <h3 className="font-bebas text-2xl tracking-[5px] text-white uppercase text-center drop-shadow-sm">
-                    {service.name}
-                  </h3>
-                  <div className="flex flex-wrap justify-center gap-4 w-full px-2">
-                    {service.members?.map(leader => (
-                       <MemberCard 
-                          key={leader.id} 
-                          member={leader} 
-                          serviceId={service.id} 
-                          isAdmin={isAdmin} 
-                          serviceColor={serviceColor} 
-                          editingItem={editingItem}
-                          updateItem={updateItem} 
-                          deleteItem={deleteItem} 
-                          setEditingItem={setEditingItem}
-                          handleDragStart={handleDragStart}
-                        />
-                    ))}
-                    {isAdmin && (
-                      <button 
-                        onClick={(e) => { e.stopPropagation(); addMember(service.id); }}
-                        className="w-8 h-8 rounded-full border border-dashed border-white/20 flex items-center justify-center text-white/30 hover:border-white/50 hover:text-white transition-all shadow-sm"
-                      >
-                        <Plus size={14} />
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ) : (
-                <div className="w-full flex flex-col items-center gap-3">
-                  <h3 className="font-bebas text-sm tracking-[2px] text-white uppercase text-center opacity-70 border-b border-white/10 pb-2 w-full">
-                    {service.name}
-                  </h3>
+              <div className="w-full flex flex-col items-center gap-3">
+                <h3 className={`font-bebas tracking-[2px] text-white uppercase text-center border-b border-white/10 pb-2 w-full ${isRoot ? 'text-xl opacity-100 mb-1' : 'text-sm opacity-70'}`}>
+                  {service.name}
+                </h3>
 
-                  {/* Manager Section */}
-                  <div className="flex flex-col items-center gap-2 w-full p-2 rounded-2xl bg-white/5 border border-white/5 shadow-inner">
-                    <div className="relative group/manager-avatar shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/20 overflow-hidden shadow-lg text-white">
-                        {service.managerAvatar ? (
-                          <img src={service.managerAvatar} alt={service.managerName} className="w-full h-full object-cover" />
-                        ) : (
-                          <User size={24} />
-                        )}
-                      </div>
-                      {isAdmin && (
-                        <button 
-                          type="button"
-                          onClick={(e) => { e.stopPropagation(); fileInputRef.current.click(); }}
-                          className="absolute inset-0 bg-black/60 opacity-0 group-hover/manager-avatar:opacity-100 flex items-center justify-center rounded-full transition-opacity z-10"
-                        >
-                          <Camera size={12} className="text-white" />
-                        </button>
+                {/* Manager Section */}
+                <div className={`flex flex-col items-center gap-2 w-full p-2 rounded-2xl bg-white/5 border border-white/5 shadow-inner ${isRoot ? 'py-4 bg-white/10' : ''}`}>
+                  <div className="relative group/manager-avatar shrink-0">
+                    <div className={`rounded-full bg-white/10 flex items-center justify-center border-2 border-white/20 overflow-hidden shadow-lg text-white ${isRoot ? 'w-16 h-16' : 'w-12 h-12'}`}>
+                      {service.managerAvatar ? (
+                        <img src={service.managerAvatar} alt={service.managerName} className="w-full h-full object-cover" />
+                      ) : (
+                        <User size={isRoot ? 32 : 24} />
                       )}
-                      <input type="file" ref={fileInputRef} className="hidden" accept="image/*" onChange={handleManagerPhotoUpload} />
                     </div>
-                    <div className="text-center">
-                      <p className="text-[11px] font-black text-white uppercase tracking-wider">{service.managerName || 'NOM PRÉNOM'}</p>
-                      <p className="text-[9px] text-ted-red uppercase font-bold tracking-tighter italic">{service.managerRole || 'RESPONSABLE'}</p>
-                    </div>
-                  </div>
-                  
-                  {/* Members List */}
-                  <div className="mt-1 space-y-1.5 w-full">
-                    {service.members?.map(member => (
-                      <MemberCard 
-                        key={member.id} 
-                        member={member} 
-                        serviceId={service.id} 
-                        isAdmin={isAdmin} 
-                        serviceColor={serviceColor} 
-                        editingItem={editingItem}
-                        updateItem={updateItem} 
-                        deleteItem={deleteItem} 
-                        setEditingItem={setEditingItem}
-                        handleDragStart={handleDragStart}
-                      />
-                    ))}
                     {isAdmin && (
                       <button 
-                        onClick={(e) => { e.stopPropagation(); addMember(service.id); }}
-                        className="w-full py-1.5 border border-dashed border-white/5 rounded-lg text-[8px] uppercase font-bold text-white/20 hover:border-white/20 hover:text-white/40 transition-all flex items-center justify-center gap-1.5"
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); fileInputRef.current.click(); }}
+                        className="absolute inset-0 bg-black/60 opacity-0 group-hover/manager-avatar:opacity-100 flex items-center justify-center rounded-full transition-opacity z-10"
                       >
-                        <Plus size={10} /> Nouveau
+                        <Camera size={isRoot ? 14 : 12} className="text-white" />
                       </button>
                     )}
+                    <input type="file" ref={fileInputRef} className="hidden" accept="image/*" onChange={handleManagerPhotoUpload} />
+                  </div>
+                  <div className="text-center">
+                    <p className={`font-black text-white uppercase tracking-wider ${isRoot ? 'text-[13px]' : 'text-[11px]'}`}>{service.managerName || 'NOM PRÉNOM'}</p>
+                    <p className={`uppercase font-bold tracking-tighter italic ${isRoot ? 'text-[10px] text-white/60' : 'text-[9px] text-ted-red'}`}>{service.managerRole || 'RESPONSABLE'}</p>
                   </div>
                 </div>
-              )}
+                
+                {/* Members List */}
+                <div className="mt-1 space-y-1.5 w-full">
+                  {service.members?.map(member => (
+                    <MemberCard 
+                      key={member.id} 
+                      member={member} 
+                      serviceId={service.id} 
+                      isAdmin={isAdmin} 
+                      serviceColor={serviceColor} 
+                      editingItem={editingItem}
+                      updateItem={updateItem} 
+                      deleteItem={deleteItem} 
+                      setEditingItem={setEditingItem}
+                      handleDragStart={handleDragStart}
+                    />
+                  ))}
+                  {isAdmin && (
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); addMember(service.id); }}
+                      className="w-full py-1.5 border border-dashed border-white/5 rounded-lg text-[8px] uppercase font-bold text-white/20 hover:border-white/20 hover:text-white/40 transition-all flex items-center justify-center gap-1.5"
+                    >
+                      <Plus size={10} /> Nouveau
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
             </div>
             
             {isAdmin && (
