@@ -130,7 +130,7 @@ const GanttView = ({ months }) => {
           </div>
         </div>
 
-        <div className="overflow-x-auto rounded-[1.5rem] border border-white/5 bg-black/40 p-2 min-h-[600px] scrollbar-premium shadow-inner">
+        <div className="overflow-x-auto rounded-[2rem] border border-white/10 bg-black/40 p-2 min-h-[600px] scrollbar-premium shadow-2xl backdrop-blur-sm">
           <div ref={containerRef} className="gantt-wrapper p-4"></div>
         </div>
 
@@ -168,46 +168,60 @@ const GanttView = ({ months }) => {
         }
         
         /* Grid Styles */
-        .gantt .grid-header { fill: transparent !important; stroke: rgba(255,255,255,0.05) !important; stroke-width: 1.5px; }
-        .gantt .grid-row { fill: transparent !important; stroke: rgba(255,255,255,0.03) !important; }
-        .gantt .grid-row:nth-child(even) { fill: rgba(255,255,255,0.01) !important; }
+        .gantt .grid-header { fill: rgba(255,255,255,0.02) !important; stroke: rgba(255,255,255,0.1) !important; stroke-width: 1px; }
+        .gantt .grid-row { fill: transparent !important; stroke: rgba(255,255,255,0.05) !important; }
+        .gantt .grid-row:nth-child(even) { fill: rgba(255,255,255,0.02) !important; }
         
         /* Text Styles */
-        .gantt .lower-text { fill: rgba(255,255,255,0.4) !important; font-family: 'Inter', sans-serif !important; font-size: 12px !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .gantt .upper-text { fill: #fff !important; font-family: 'Bebas Neue', sans-serif !important; font-size: 18px !important; letter-spacing: 3px !important; opacity: 0.8; }
+        .gantt .lower-text { 
+            fill: #ffffff !important; 
+            font-family: 'Inter', sans-serif !important; 
+            font-size: 11px !important; 
+            font-weight: 800 !important; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            opacity: 0.9 !important;
+        }
+        .gantt .upper-text { 
+            fill: #E62B1E !important; 
+            font-family: 'Bebas Neue', sans-serif !important; 
+            font-size: 18px !important; 
+            letter-spacing: 3px !important; 
+            opacity: 1 !important; 
+        }
         
         /* Bar Styles */
         .gantt .bar-wrapper { cursor: pointer; }
-        .gantt .bar { fill: rgba(255,255,255,0.04) !important; stroke: rgba(255,255,255,0.08) !important; stroke-width: 1.5px !important; }
-        .gantt .bar-progress { fill: #E62B1E !important; filter: drop-shadow(0 0 12px rgba(230, 43, 30, 0.45)); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .gantt .bar-label { fill: #fff !important; font-family: 'Inter', sans-serif !important; font-weight: 800 !important; font-size: 12px !important; letter-spacing: 0.5px; text-transform: uppercase; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+        .gantt .bar { fill: rgba(255,255,255,0.06) !important; stroke: rgba(255,255,255,0.12) !important; stroke-width: 1.5px !important; }
+        .gantt .bar-progress { fill: #E62B1E !important; filter: drop-shadow(0 0 15px rgba(230, 43, 30, 0.5)); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .gantt .bar-label { fill: #fff !important; font-family: 'Inter', sans-serif !important; font-weight: 800 !important; font-size: 11px !important; letter-spacing: 0.5px; text-transform: uppercase; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
         
         /* Interactive States */
-        .gantt .bar-wrapper:hover .bar { stroke: rgba(255,255,255,0.4) !important; }
+        .gantt .bar-wrapper:hover .bar { stroke: rgba(255,255,255,0.5) !important; filter: brightness(1.2); }
         .gantt .bar-wrapper:hover .bar-label { fill: #fff !important; opacity: 1; }
         
         /* TODAY LINE */
         .gantt .today-highlight { 
-            fill: rgba(230, 43, 30, 0.05) !important; 
+            fill: rgba(230, 43, 30, 0.08) !important; 
             stroke: #E62B1E !important; 
-            stroke-width: 3px !important; 
-            stroke-dasharray: 6, 4 !important;
-            filter: drop-shadow(0 0 8px rgba(230, 43, 30, 0.6));
+            stroke-width: 2px !important; 
+            stroke-dasharray: 8, 4 !important;
+            filter: drop-shadow(0 0 10px rgba(230, 43, 30, 0.7));
         }
 
         /* Arrows & Handles */
-        .gantt .arrow { stroke: rgba(255,255,255,0.1) !important; stroke-width: 2; marker-end: none !important; }
+        .gantt .arrow { stroke: rgba(255,255,255,0.15) !important; stroke-width: 2; marker-end: none !important; }
         .gantt .handle { fill: #fff !important; opacity: 0; }
         
         /* Scrollbar personalization */
         .scrollbar-premium::-webkit-scrollbar { height: 12px; }
-        .scrollbar-premium::-webkit-scrollbar-track { background: rgba(0,0,0,0.5); border-radius: 20px; }
-        .scrollbar-premium::-webkit-scrollbar-thumb { background: #262626; border-radius: 20px; border: 3px solid transparent; background-clip: content-box; transition: all 0.3s; }
+        .scrollbar-premium::-webkit-scrollbar-track { background: rgba(0,0,0,0.6); border-radius: 20px; }
+        .scrollbar-premium::-webkit-scrollbar-thumb { background: #333; border-radius: 20px; border: 3px solid transparent; background-clip: content-box; transition: all 0.3s; }
         .scrollbar-premium::-webkit-scrollbar-thumb:hover { background: #E62B1E; background-clip: content-box; }
 
         /* MILESTONE STYLING */
         .gantt .gantt-milestone-indicator .bar {
-            fill: transparent !important;
+            fill: rgba(230, 43, 30, 0.1) !important;
             stroke: #E62B1E !important;
             stroke-width: 3px !important;
             stroke-dasharray: 0 !important;
