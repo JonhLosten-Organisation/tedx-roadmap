@@ -278,7 +278,6 @@ const App = () => {
             onUnlock={() => setIsAdmin(true)} 
             onLock={() => setIsAdmin(false)} 
           />
-        </div>
           
           {isAdmin && (
             <div className="flex items-center gap-2 mr-2">
