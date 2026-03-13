@@ -271,7 +271,6 @@ const ServiceNode = ({ service, isRoot = false, level = 0, isAdmin, editingItem,
                 </div>
               </div>
             </div>
-            </div>
             
             {isAdmin && (
               <div className="flex gap-1 opacity-0 group-hover/service-header:opacity-100 transition-opacity bg-black/60 p-1 rounded-lg border border-white/10 backdrop-blur-md z-20 shadow-sm">
