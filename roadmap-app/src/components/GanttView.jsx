@@ -212,18 +212,21 @@ const GanttView = ({ months }) => {
             fill: #ffffff !important; 
             color: #ffffff !important;
             font-family: 'Inter', sans-serif !important; 
-            font-weight: 900 !important; 
-            font-size: 12px !important; 
-            letter-spacing: 0.5px; 
+            font-weight: 950 !important; 
+            font-size: 13px !important; 
+            letter-spacing: 1.2px; 
             text-transform: uppercase; 
             dominant-baseline: central;
-            text-shadow: 0 0 6px #000, 0 0 2px #000 !important;
+            text-shadow: none !important;
+            stroke: none !important;
             pointer-events: none;
         }
         
         .gantt .bar-label.big {
             fill: #ffffff !important;
-            font-weight: 950 !important;
+            font-weight: 1000 !important;
+            text-shadow: none !important;
+            stroke: none !important;
         }
         
         /* Interactive States */
