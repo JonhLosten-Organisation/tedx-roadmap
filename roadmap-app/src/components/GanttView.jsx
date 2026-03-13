@@ -62,14 +62,14 @@ const GanttView = ({ months }) => {
     containerRef.current.appendChild(svg);
 
     const config = {
-      header_height: 70,
-      column_width: viewMode === 'Day' ? 70 : (viewMode === 'Week' ? 180 : 300),
+      header_height: 65,
+      column_width: viewMode === 'Day' ? 55 : (viewMode === 'Week' ? 150 : 250),
       step: 24,
       view_mode: viewMode,
       language: 'fr',
-      bar_height: 55,
-      bar_corner_radius: 15,
-      padding: 35,
+      bar_height: 42,
+      bar_corner_radius: 10,
+      padding: 25,
       on_click: (task) => console.log('Task clicked:', task),
     };
 
@@ -130,7 +130,7 @@ const GanttView = ({ months }) => {
           </div>
         </div>
 
-        <div className="overflow-x-auto rounded-[2rem] border border-white/20 bg-black/80 p-2 min-h-[600px] scrollbar-premium shadow-2xl backdrop-blur-sm">
+        <div className="overflow-x-auto rounded-[2rem] border border-white/20 bg-black/90 p-2 min-h-[600px] scrollbar-premium shadow-2xl backdrop-blur-sm">
           <div ref={containerRef} className="gantt-wrapper p-4"></div>
         </div>
 
@@ -178,72 +178,69 @@ const GanttView = ({ months }) => {
         .gantt .grid-row { fill: #000000 !important; stroke: rgba(255,255,255,0.08) !important; }
         .gantt .grid-row:nth-child(even) { fill: #050505 !important; }
         
-        /* Text Styles - MAXIMUM CONTRAST */
+        /* Text Styles */
         .gantt .lower-text { 
             fill: #ffffff !important; 
             color: #ffffff !important;
             font-family: 'Inter', sans-serif !important; 
-            font-size: 12px !important; 
-            font-weight: 900 !important; 
+            font-size: 11px !important; 
+            font-weight: 800 !important; 
             text-transform: uppercase; 
-            letter-spacing: 1.5px;
-            opacity: 1 !important;
-            filter: drop-shadow(0 0 2px #000);
+            letter-spacing: 1px;
+            opacity: 0.9 !important;
         }
         .gantt .upper-text { 
-            fill: #E62B1E !important; 
-            color: #E62B1E !important;
+            fill: #ffffff !important; 
+            color: #ffffff !important;
             font-family: 'Bebas Neue', sans-serif !important; 
-            font-size: 20px !important; 
-            letter-spacing: 4px !important; 
+            font-size: 18px !important; 
+            letter-spacing: 3px !important; 
             opacity: 1 !important; 
         }
         
         /* Bar Styles */
         .gantt .bar-wrapper .bar { 
             fill: #111111 !important; 
-            stroke: rgba(255,255,255,0.4) !important; 
-            stroke-width: 2.5px !important; 
+            stroke: rgba(255,255,255,0.3) !important; 
+            stroke-width: 2px !important; 
         }
         .gantt .bar-progress { 
             fill: #E62B1E !important; 
-            filter: drop-shadow(0 0 15px #E62B1E); 
+            filter: drop-shadow(0 0 12px #E62B1E); 
         }
         .gantt .bar-label { 
             fill: #ffffff !important; 
             color: #ffffff !important;
             font-family: 'Inter', sans-serif !important; 
             font-weight: 900 !important; 
-            font-size: 15px !important; 
-            letter-spacing: 1.2px; 
+            font-size: 12px !important; 
+            letter-spacing: 0.5px; 
             text-transform: uppercase; 
             dominant-baseline: central;
-            text-shadow: 0 0 10px #000, 0 0 5px #000, 0 0 2px #000 !important;
+            text-shadow: 0 0 6px #000, 0 0 2px #000 !important;
             pointer-events: none;
-            -webkit-font-smoothing: antialiased;
         }
         
         .gantt .bar-label.big {
             fill: #ffffff !important;
             font-weight: 950 !important;
-            filter: drop-shadow(0 0 2px #000);
         }
         
         /* Interactive States */
         .gantt .bar-wrapper:hover .bar { 
             stroke: #ffffff !important;
-            fill: #333333 !important;
+            fill: #222222 !important;
         }
         
         /* TODAY LINE */
         .gantt .today-highlight { 
             stroke: #E62B1E !important; 
-            stroke-width: 3px !important; 
+            stroke-width: 2px !important; 
             opacity: 1 !important;
         }
 
         /* Arrows */
-        .gantt .arrow { stroke: rgba(255,255,255,0.3) !important; stroke-width: 2.5; }
+        .gantt .arrow { stroke: rgba(255,255,255,0.3) !important; stroke-width: 2; }
       `}</style>
     </div>
   );
