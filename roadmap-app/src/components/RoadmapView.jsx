@@ -44,19 +44,19 @@ const RoadmapView = ({ months, onEditAxe, onEditMilestone, isAdmin }) => {
   };
 
   return (
-    <div className="relative pl-12 space-y-32">
-      <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-ted-red via-white/10 to-transparent"></div>
+    <div className="relative pl-8 md:pl-12 space-y-20 md:space-y-32">
+      <div className="absolute left-[1.125rem] md:left-4 top-0 bottom-0 w-px bg-gradient-to-b from-ted-red via-white/10 to-transparent"></div>
 
       {months.map((month, mIdx) => {
         const isEventMonth = month.milestone.includes('ÉVÉNEMENT');
         
         return (
           <section key={mIdx} className="relative animate-premium-entry" style={{ animationDelay: `${mIdx * 0.1}s` }}>
-            <div className={`absolute left-[-2.55rem] top-2 w-5 h-5 rounded-full bg-ted-dark border-2 border-ted-red z-10 flex items-center justify-center group ${isEventMonth ? 'ted-red-glow scale-125' : ''}`}>
+            <div className={`absolute left-[-1.5rem] md:left-[-2.55rem] top-2 w-5 h-5 rounded-full bg-ted-dark border-2 border-ted-red z-10 flex items-center justify-center group ${isEventMonth ? 'ted-red-glow scale-125' : ''}`}>
                <div className={`w-2 h-2 rounded-full bg-ted-red transition-transform duration-300 group-hover:scale-150`}></div>
             </div>
 
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-white/10 pb-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 mb-8 md:mb-10 border-b border-white/10 pb-6">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                     <div 
@@ -68,7 +68,7 @@ const RoadmapView = ({ months, onEditAxe, onEditMilestone, isAdmin }) => {
                       {month.date ? new Date(month.date).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long' }) : (month.milestone || 'Objectif stratégique')}
                     </div>
                 </div>
-                <h2 className={`font-bebas text-6xl md:text-7xl tracking-widest leading-none ${isEventMonth ? 'text-ted-red font-bold' : 'text-white'}`}>
+                <h2 className={`font-bebas text-5xl md:text-7xl tracking-widest leading-none mt-2 ${isEventMonth ? 'text-ted-red font-bold' : 'text-white'}`}>
                   {month.label}
                 </h2>
               </div>

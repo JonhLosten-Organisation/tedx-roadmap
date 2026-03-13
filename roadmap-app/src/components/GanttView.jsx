@@ -97,7 +97,7 @@ const GanttView = ({ months }) => {
 
   return (
     <div className="animate-premium-entry mt-8">
-      <div className="glass rounded-[2.5rem] p-6 md:p-12 shadow-premium relative border border-white/10 bg-black/60 overflow-hidden">
+      <div className="glass rounded-[2.5rem] p-4 sm:p-6 md:p-12 shadow-premium relative border border-white/10 bg-black/60 overflow-hidden">
         {/* Header Decor */}
         <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-ted-red to-transparent opacity-40"></div>
 
@@ -107,22 +107,22 @@ const GanttView = ({ months }) => {
                 <div className="h-px w-12 bg-ted-red"></div>
                 <span className="text-ted-red text-[11px] font-black uppercase tracking-[5px]">Chronologie Réelle</span>
             </div>
-            <h3 className="font-bebas text-5xl md:text-6xl tracking-widest text-white leading-tight">Master Timeline</h3>
+            <h3 className="font-bebas text-4xl sm:text-5xl md:text-6xl tracking-widest text-white leading-tight">Master Timeline</h3>
             <p className="text-ted-muted text-sm font-medium tracking-wide opacity-70 font-inter max-w-xl mt-3 leading-relaxed">
                 Visualisation dynamique des phases critiques. Les couleurs correspondent aux pôles stratégiques définis dans le programme.
             </p>
           </div>
           
-          <div className="flex items-center gap-2 bg-black/60 p-1.5 rounded-2xl border border-white/10 shadow-premium backdrop-blur-xl">
+          <div className="w-full lg:w-auto flex items-center justify-between lg:justify-start gap-1 sm:gap-2 bg-black/60 p-1.5 rounded-2xl border border-white/10 shadow-premium backdrop-blur-xl overflow-x-auto scrollbar-none">
             {[
               { id: 'Day', label: 'Jour' },
-              { id: 'Week', label: 'Semaine' },
+              { id: 'Week', label: 'Sem' },
               { id: 'Month', label: 'Mois' }
             ].map(mode => (
               <button 
                 key={mode.id}
                 onClick={() => setViewMode(mode.id)}
-                className={`px-8 py-3 rounded-xl text-[12px] font-black uppercase tracking-widest transition-all duration-500 ${viewMode === mode.id ? 'bg-ted-red text-white shadow-[0_0_25px_rgba(230,27,30,0.4)] scale-105' : 'text-ted-muted hover:text-white hover:bg-white/5'}`}
+                className={`flex-1 lg:flex-none px-4 sm:px-8 py-2 sm:py-3 rounded-xl text-[10px] sm:text-[12px] font-black uppercase tracking-widest transition-all duration-500 whitespace-nowrap ${viewMode === mode.id ? 'bg-ted-red text-white shadow-[0_0_25px_rgba(230,27,30,0.4)] scale-105' : 'text-ted-muted hover:text-white hover:bg-white/5'}`}
               >
                 {mode.label}
               </button>

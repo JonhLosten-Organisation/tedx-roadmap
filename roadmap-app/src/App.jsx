@@ -240,7 +240,7 @@ const App = () => {
         <div className="absolute bottom-[-10%] left-[-10%] w-[30%] h-[30%] bg-white/5 blur-[100px] rounded-full"></div>
       </div>
 
-      <nav className="sticky top-0 z-50 glass border-b border-white/10 px-8 py-4 flex items-center justify-between">
+      <nav className="sticky top-0 z-50 glass border-b border-white/10 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-4">
             <img src="./logo.png" alt="TEDx Logo" className="h-8 w-auto object-contain" />
@@ -283,9 +283,9 @@ const App = () => {
               <span className="text-[10px] font-bold uppercase tracking-widest">Offline</span>
             </div>
           ) : (
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            <div className="flex items-center gap-2 px-2 md:px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               <Cloud size={14} />
-              <span className="text-[10px] font-bold uppercase tracking-widest">Cloud Sync</span>
+              <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-widest">Cloud Sync</span>
             </div>
           )}
           
@@ -301,7 +301,7 @@ const App = () => {
                 className="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium"
               >
                 <PlusCircle size={16} className="text-emerald-400" />
-                <span className="hidden lg:inline">Ajouter un axe</span>
+                <span className="hidden md:inline">Ajouter un axe</span>
               </button>
               {/* Temporarily hidden as requested:
               <button 
@@ -317,18 +317,43 @@ const App = () => {
           
           <button 
             onClick={handleShare}
-            className="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium"
+            className="flex items-center justify-center p-2 md:px-4 md:py-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-lg transition-all duration-200 text-sm font-medium"
           >
             <Share2 size={16} />
-            <span className="hidden sm:inline">Partager</span>
+            <span className="hidden md:inline ml-2">Partager</span>
           </button>
         </div>
       </nav>
 
-      <main className="py-12 animate-premium-entry">
-        <div className="max-w-7xl mx-auto px-8">
-          <header className="mb-12">
-            <h1 className="font-bebas text-6xl md:text-7xl tracking-[6px] text-white leading-tight mb-2">
+      {/* Bottom Navigation for Mobile */}
+      <div className="md:hidden fixed bottom-0 left-0 w-full z-50 glass border-t border-white/10 px-4 py-2 flex items-center justify-around bg-black/95 backdrop-blur-2xl pb-safe">
+        <button 
+          onClick={() => setView('roadmap')}
+          className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${view === 'roadmap' ? 'text-ted-red' : 'text-ted-muted hover:text-white'}`}
+        >
+          <LayoutDashboard size={20} className={view === 'roadmap' ? 'scale-110 drop-shadow-[0_0_8px_rgba(230,43,30,0.5)]' : ''} />
+          <span className="text-[9px] font-bold uppercase tracking-widest mt-0.5">Roadmap</span>
+        </button>
+        <button 
+          onClick={() => setView('gantt')}
+          className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${view === 'gantt' ? 'text-ted-red' : 'text-ted-muted hover:text-white'}`}
+        >
+          <Calendar size={20} className={view === 'gantt' ? 'scale-110 drop-shadow-[0_0_8px_rgba(230,43,30,0.5)]' : ''} />
+          <span className="text-[9px] font-bold uppercase tracking-widest mt-0.5">Gantt</span>
+        </button>
+        <button 
+          onClick={() => setView('org')}
+          className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${view === 'org' ? 'text-ted-red' : 'text-ted-muted hover:text-white'}`}
+        >
+          <PlusCircle size={20} className={view === 'org' ? 'scale-110 drop-shadow-[0_0_8px_rgba(230,43,30,0.5)]' : ''} />
+          <span className="text-[9px] font-bold uppercase tracking-widest mt-0.5">Structure</span>
+        </button>
+      </div>
+
+      <main className="py-8 md:py-12 pb-24 md:pb-12 animate-premium-entry">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <header className="mb-8 md:mb-12">
+            <h1 className="font-bebas text-5xl md:text-7xl tracking-[3px] md:tracking-[6px] text-white leading-tight mb-2 md:mb-3">
               {view === 'org' ? (
                 <>ORGANIGRAMME <span className="text-ted-red">2026</span>–2027</>
               ) : view === 'gantt' ? (

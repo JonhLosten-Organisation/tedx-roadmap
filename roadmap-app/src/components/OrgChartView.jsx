@@ -482,7 +482,7 @@ const OrgChartView = ({ orgData, setOrgData, isAdmin }) => {
   if (!orgData?.services) return null;
 
   return (
-    <div className="pb-32 w-full overflow-x-auto scrollbar-premium px-12">
+    <div className="pb-32 w-full overflow-x-auto scrollbar-premium px-4 md:px-12">
       <div className="flex flex-col items-center">
         {orgData.services.map((service) => (
           <ServiceNode 

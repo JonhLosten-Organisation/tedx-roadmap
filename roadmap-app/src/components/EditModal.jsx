@@ -92,11 +92,11 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
   ];
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={onClose}></div>
       
-      <div className="glass relative w-full max-w-xl rounded-[2rem] shadow-premium overflow-hidden animate-premium-entry border border-white/10">
-        <div className="px-8 py-6 flex items-center justify-between border-b border-white/5 bg-white/5">
+      <div className="glass relative w-full max-w-xl rounded-[1.5rem] md:rounded-[2rem] shadow-premium overflow-hidden animate-premium-entry border border-white/10 flex flex-col max-h-[95vh]">
+        <div className="px-6 md:px-8 py-4 md:py-6 flex items-center justify-between border-b border-white/5 bg-white/5 shrink-0">
           <h3 className="font-bebas text-3xl tracking-widest text-white">
             {type === 'axe' ? 'Modifier l\'Axe' : (type === 'milestone' ? 'Objectif de Phase' : 'Nouvel Axe Stratégique')}
           </h3>
@@ -105,7 +105,7 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-8 space-y-8 max-h-[75vh] overflow-y-auto scrollbar-premium">
+        <form onSubmit={handleSubmit} className="p-6 md:p-8 space-y-6 md:space-y-8 overflow-y-auto scrollbar-premium flex-1">
           {type === 'milestone' ? (
             <>
               <div className="space-y-3">
@@ -441,7 +441,7 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
             </>
           )}
 
-          <div className="pt-8 flex flex-col sm:flex-row gap-4">
+          <div className="pt-6 md:pt-8 flex flex-col sm:flex-row gap-3 md:gap-4 mt-4">
             {onDelete && (
               <button 
                 type="button"
