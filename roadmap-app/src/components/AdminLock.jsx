@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Lock, Unlock, ShieldAlert, X, ChevronRight } from 'lucide-react';
 
+import { createPortal } from 'react-dom';
 import { supabase } from '../lib/supabase';
 
 const AdminLock = ({ isAdmin, onLock }) => {
@@ -61,10 +62,10 @@ const AdminLock = ({ isAdmin, onLock }) => {
         <span>Lecture Seule</span>
       </button>
 
-      {showPrompt && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+      {showPrompt && createPortal(
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={() => !loading && setShowPrompt(false)}></div>
-          <div className="glass relative w-full max-w-sm rounded-2xl shadow-premium border border-white/10 p-8 animate-premium-entry">
+          <div className="glass relative w-full max-w-sm rounded-2xl shadow-premium border border-white/10 p-8 animate-premium-entry mt-[-10vh]">
             <div className="flex flex-col items-center text-center mb-6">
               <div className="w-16 h-16 rounded-full bg-ted-red/10 flex items-center justify-center mb-4 border border-ted-red/20">
                 <ShieldAlert size={32} className="text-ted-red" />
@@ -118,7 +119,8 @@ const AdminLock = ({ isAdmin, onLock }) => {
               </button>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
