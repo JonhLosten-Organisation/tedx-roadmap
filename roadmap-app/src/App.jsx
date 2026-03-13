@@ -25,6 +25,22 @@ const App = () => {
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncError, setSyncError] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [user, setUser] = useState(null);
+
+  // Auth Session Listener
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+      setIsAdmin(!!session?.user);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setIsAdmin(!!session?.user);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
   
   // Modal State
   const [modalOpen, setModalOpen] = useState(false);
@@ -275,8 +291,7 @@ const App = () => {
           
           <AdminLock 
             isAdmin={isAdmin} 
-            onUnlock={() => setIsAdmin(true)} 
-            onLock={() => setIsAdmin(false)} 
+            onLock={() => {}} 
           />
           
           {isAdmin && (
