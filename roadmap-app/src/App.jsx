@@ -345,7 +345,7 @@ const App = () => {
           </header>
         </div>
 
-        <div className={`${view === 'org' ? 'w-full px-4' : 'max-w-7xl mx-auto px-8'}`}>
+        <div className={`${(view === 'org' || view === 'gantt') ? 'w-full px-4' : 'max-w-7xl mx-auto px-8'}`}>
           {view === 'roadmap' ? (
             <RoadmapView 
               months={data.months} 
