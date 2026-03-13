@@ -21,12 +21,12 @@ const GanttView = ({ months }) => {
       if (month.date) {
         tasks.push({
           id: `milestone-${idx}`,
-          name: `🚩 ${month.milestone || 'Jalon'}`,
+          name: `◈ ${month.milestone || 'Événement'}`,
           start: month.date,
           end: month.date,
           progress: 100,
           dependencies: '',
-          custom_class: 'gantt-milestone-indicator'
+          custom_class: 'gantt-milestone-diamond'
         });
       }
 
@@ -240,6 +240,25 @@ const GanttView = ({ months }) => {
             stroke: #E62B1E !important; 
             stroke-width: 2px !important; 
             opacity: 1 !important;
+        }
+
+        /* Diamond Milestone Style */
+        .gantt .gantt-milestone-diamond .bar {
+            fill: #E62B1E !important;
+            stroke: #ffffff !important;
+            stroke-width: 2px !important;
+            transform: scale(0.6) rotate(45deg);
+            transform-origin: center;
+        }
+        
+        .gantt .gantt-milestone-diamond .bar-progress {
+            display: none;
+        }
+
+        .gantt .gantt-milestone-diamond .bar-label {
+            fill: #E62B1E !important;
+            font-weight: 950 !important;
+            transform: translateY(-2px);
         }
 
         /* Arrows */

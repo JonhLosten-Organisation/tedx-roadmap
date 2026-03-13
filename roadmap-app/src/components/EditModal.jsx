@@ -98,7 +98,7 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
       <div className="glass relative w-full max-w-xl rounded-[2rem] shadow-premium overflow-hidden animate-premium-entry border border-white/10">
         <div className="px-8 py-6 flex items-center justify-between border-b border-white/5 bg-white/5">
           <h3 className="font-bebas text-3xl tracking-widest text-white">
-            {type === 'axe' ? 'Modifier l\'Axe' : (type === 'milestone' ? 'Nouveau Jalon' : 'Nouvel Axe Stratégique')}
+            {type === 'axe' ? 'Modifier l\'Axe' : (type === 'milestone' ? 'Objectif de Phase' : 'Nouvel Axe Stratégique')}
           </h3>
           <button onClick={onClose} className="p-2 text-ted-muted hover:text-white transition-colors">
             <X size={20} />
@@ -110,18 +110,7 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
             <>
               <div className="space-y-3">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-ted-muted flex items-center gap-2">
-                   <Calendar size={12} className="text-ted-red" /> Date du Jalon
-                </label>
-                <input 
-                  type="date" 
-                  value={formData.date || ''} 
-                  onChange={e => setFormData({...formData, date: e.target.value})}
-                  className="w-full h-12 bg-black border border-white/10 rounded-xl px-4 text-sm focus:border-ted-red outline-none focus:ring-1 focus:ring-ted-red/20 transition-all font-inter text-white inverted-calendar-icon"
-                />
-              </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-ted-muted flex items-center gap-2">
-                   Label de la Période
+                   Label de la Période (Mois)
                 </label>
                 <input 
                   type="text" 
@@ -132,7 +121,7 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
                 />
               </div>
               <div className="space-y-3">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-ted-muted">Jalon (Focus)</label>
+                <label className="text-[10px] font-bold uppercase tracking-widest text-ted-muted">Objectif de Phase (Focus principal)</label>
                 <input 
                   type="text" 
                   value={formData.milestone || ''} 
@@ -140,6 +129,20 @@ const EditModal = ({ isOpen, onClose, onSave, onDelete, type, initialData, month
                   placeholder="Ex: Structuration & Lancement"
                   className="w-full h-12 bg-black border border-white/10 rounded-xl px-4 text-sm focus:border-ted-red outline-none focus:ring-1 focus:ring-ted-red/20 transition-all font-inter"
                 />
+              </div>
+              <div className="pt-4 border-t border-white/5 space-y-3">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-ted-muted flex items-center gap-2 opacity-60">
+                   <Calendar size={12} className="text-ted-red" /> Date du Jalon (Événement sur le Gantt)
+                </label>
+                <div className="flex flex-col gap-1">
+                  <input 
+                    type="date" 
+                    value={formData.date || ''} 
+                    onChange={e => setFormData({...formData, date: e.target.value})}
+                    className="w-full h-12 bg-black/40 border border-white/10 rounded-xl px-4 text-sm focus:border-ted-red outline-none transition-all font-inter text-white inverted-calendar-icon"
+                  />
+                  <p className="text-[9px] text-ted-muted italic px-1">Laissez vide si l'objectif de phase n'est pas un événement ponctuel.</p>
+                </div>
               </div>
             </>
           ) : (

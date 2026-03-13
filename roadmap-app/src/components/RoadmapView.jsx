@@ -59,13 +59,14 @@ const RoadmapView = ({ months, onEditAxe, onEditMilestone, isAdmin }) => {
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-white/10 pb-6">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                    <button 
+                    <div 
                       onClick={() => isAdmin && onEditMilestone(mIdx)}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[2px] transition-all ${isEventMonth ? 'bg-ted-red text-white' : 'bg-white/10 text-ted-muted'} ${isAdmin ? 'hover:bg-ted-red hover:text-white cursor-pointer' : ''}`}
+                      className={`inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[2px] transition-all shadow-lg ${isEventMonth ? 'bg-ted-red text-white shadow-ted-red/20' : 'bg-white/5 text-ted-muted border border-white/10'} ${isAdmin ? 'hover:bg-white/10 hover:text-white cursor-pointer active:scale-95' : ''}`}
                     >
-                      <Calendar size={12} />
-                      {month.date ? new Date(month.date).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }) : (month.milestone || 'Jalon Mensuel')}
-                    </button>
+                      <Target size={12} className={isEventMonth ? 'text-white' : 'text-ted-red'} />
+                      <span className="opacity-60">{month.date ? 'Événement le ' : 'Focus : '}</span>
+                      {month.date ? new Date(month.date).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long' }) : (month.milestone || 'Objectif stratégique')}
+                    </div>
                 </div>
                 <h2 className={`font-bebas text-6xl md:text-7xl tracking-widest leading-none ${isEventMonth ? 'text-ted-red font-bold' : 'text-white'}`}>
                   {month.label}
