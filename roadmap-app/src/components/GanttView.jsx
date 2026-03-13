@@ -179,7 +179,7 @@ const GanttView = ({ months }) => {
         .gantt .grid-row:nth-child(even) { fill: #050505 !important; }
         
         /* Text Styles */
-        .gantt .lower-text { 
+        .gantt .lower-text, .gantt-container .lower-text { 
             fill: #ffffff !important; 
             color: #ffffff !important;
             font-family: 'Inter', sans-serif !important; 
@@ -187,9 +187,9 @@ const GanttView = ({ months }) => {
             font-weight: 800 !important; 
             text-transform: uppercase; 
             letter-spacing: 1px;
-            opacity: 0.9 !important;
+            opacity: 1 !important;
         }
-        .gantt .upper-text { 
+        .gantt .upper-text, .gantt-container .upper-text { 
             fill: #ffffff !important; 
             color: #ffffff !important;
             font-family: 'Bebas Neue', sans-serif !important; 
