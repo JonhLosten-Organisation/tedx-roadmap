@@ -164,26 +164,34 @@ const GanttView = ({ months }) => {
         .gantt-wrapper svg {
           max-width: none !important;
           border-radius: 16px;
-          background: transparent !important;
+          background: #0a0a0a !important;
+        }
+        
+        /* Force dark header */
+        .gantt .grid-header { 
+            fill: #0a0a0a !important; 
+            background-color: #0a0a0a !important;
+            stroke: rgba(255,255,255,0.1) !important; 
         }
         
         /* Grid Styles */
-        .gantt .grid-header { fill: rgba(255,255,255,0.02) !important; stroke: rgba(255,255,255,0.1) !important; stroke-width: 1px; }
-        .gantt .grid-row { fill: transparent !important; stroke: rgba(255,255,255,0.05) !important; }
-        .gantt .grid-row:nth-child(even) { fill: rgba(255,255,255,0.02) !important; }
+        .gantt .grid-row { fill: #0d0d0d !important; stroke: rgba(255,255,255,0.05) !important; }
+        .gantt .grid-row:nth-child(even) { fill: #111111 !important; }
         
-        /* Text Styles */
+        /* Text Styles - FORCE WHITE */
         .gantt .lower-text { 
             fill: #ffffff !important; 
+            color: #ffffff !important;
             font-family: 'Inter', sans-serif !important; 
             font-size: 11px !important; 
             font-weight: 800 !important; 
             text-transform: uppercase; 
             letter-spacing: 1px;
-            opacity: 0.9 !important;
+            opacity: 1 !important;
         }
         .gantt .upper-text { 
             fill: #E62B1E !important; 
+            color: #E62B1E !important;
             font-family: 'Bebas Neue', sans-serif !important; 
             font-size: 18px !important; 
             letter-spacing: 3px !important; 
@@ -191,48 +199,39 @@ const GanttView = ({ months }) => {
         }
         
         /* Bar Styles */
-        .gantt .bar-wrapper { cursor: pointer; }
-        .gantt .bar { fill: rgba(255,255,255,0.06) !important; stroke: rgba(255,255,255,0.12) !important; stroke-width: 1.5px !important; }
-        .gantt .bar-progress { fill: #E62B1E !important; filter: drop-shadow(0 0 15px rgba(230, 43, 30, 0.5)); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .gantt .bar-label { fill: #fff !important; font-family: 'Inter', sans-serif !important; font-weight: 800 !important; font-size: 11px !important; letter-spacing: 0.5px; text-transform: uppercase; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
+        .gantt .bar-wrapper .bar { 
+            fill: #1f1f1f !important; 
+            stroke: rgba(255,255,255,0.2) !important; 
+            stroke-width: 1.5px !important; 
+        }
+        .gantt .bar-progress { 
+            fill: #E62B1E !important; 
+            filter: drop-shadow(0 0 10px rgba(230, 43, 30, 0.6)); 
+        }
+        .gantt .bar-label { 
+            fill: #ffffff !important; 
+            color: #ffffff !important;
+            font-family: 'Inter', sans-serif !important; 
+            font-weight: 900 !important; 
+            font-size: 11px !important; 
+            letter-spacing: 0.5px; 
+            text-transform: uppercase; 
+            text-shadow: 0 2px 4px rgba(0,0,0,1);
+        }
         
         /* Interactive States */
-        .gantt .bar-wrapper:hover .bar { stroke: rgba(255,255,255,0.5) !important; filter: brightness(1.2); }
-        .gantt .bar-wrapper:hover .bar-label { fill: #fff !important; opacity: 1; }
+        .gantt .bar-wrapper:hover .bar { stroke: #ffffff !important; }
+        .gantt .bar-wrapper:hover .bar-label { opacity: 1; }
         
         /* TODAY LINE */
         .gantt .today-highlight { 
-            fill: rgba(230, 43, 30, 0.08) !important; 
             stroke: #E62B1E !important; 
             stroke-width: 2px !important; 
-            stroke-dasharray: 8, 4 !important;
-            filter: drop-shadow(0 0 10px rgba(230, 43, 30, 0.7));
+            opacity: 1 !important;
         }
 
-        /* Arrows & Handles */
-        .gantt .arrow { stroke: rgba(255,255,255,0.15) !important; stroke-width: 2; marker-end: none !important; }
-        .gantt .handle { fill: #fff !important; opacity: 0; }
-        
-        /* Scrollbar personalization */
-        .scrollbar-premium::-webkit-scrollbar { height: 12px; }
-        .scrollbar-premium::-webkit-scrollbar-track { background: rgba(0,0,0,0.6); border-radius: 20px; }
-        .scrollbar-premium::-webkit-scrollbar-thumb { background: #333; border-radius: 20px; border: 3px solid transparent; background-clip: content-box; transition: all 0.3s; }
-        .scrollbar-premium::-webkit-scrollbar-thumb:hover { background: #E62B1E; background-clip: content-box; }
-
-        /* MILESTONE STYLING */
-        .gantt .gantt-milestone-indicator .bar {
-            fill: rgba(230, 43, 30, 0.1) !important;
-            stroke: #E62B1E !important;
-            stroke-width: 3px !important;
-            stroke-dasharray: 0 !important;
-        }
-        .gantt .gantt-milestone-indicator .bar-label {
-            fill: #E62B1E !important;
-            font-weight: 900 !important;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 13px !important;
-        }
+        /* Arrows */
+        .gantt .arrow { stroke: rgba(255,255,255,0.2) !important; stroke-width: 2; }
       `}</style>
     </div>
   );
