@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -16,7 +13,7 @@ export default {
           text: '#FFFFFF',
           muted: '#A0A0A0',
           accent: '#FF4D4D',
-        }
+        },
       },
       fontFamily: {
         bebas: ['Bebas Neue', 'sans-serif'],
@@ -28,14 +25,14 @@ export default {
       },
       keyframes: {
         fadeInScale: {
-          'from': { opacity: '0', transform: 'scale(0.98)' },
-          'to': { opacity: '1', transform: 'scale(1)' },
-        }
+          from: { opacity: '0', transform: 'scale(0.98)' },
+          to: { opacity: '1', transform: 'scale(1)' },
+        },
       },
       boxShadow: {
-        'premium': '0 20px 50px rgba(0, 0, 0, 0.5)',
-        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-      }
+        premium: '0 20px 50px rgba(0, 0, 0, 0.5)',
+        glass: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+      },
     },
   },
   plugins: [],
